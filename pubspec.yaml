@@ -33,6 +33,7 @@ dependencies:
   # state management
   flutter_bloc: ^8.1.6  
   #code generator (meanly used with cubit and retrofit )
+  flutter_native_splash: ^2.4.1
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
   freezed: ^2.5.7
