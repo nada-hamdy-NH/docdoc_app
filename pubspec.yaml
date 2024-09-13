@@ -28,6 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  build_runner: ^2.4.12
+  dio: ^5.6.0
   flutter:
     sdk: flutter
   # state management
@@ -37,12 +39,15 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
   freezed: ^2.5.7
-#annotations for code generstion 
+#annotations for code generstion , اول استخدام ل freezed
+#هوه ان  
   freezed_annotation: ^2.4.4
   #dependency injection 
   get_it: ^7.7.0 
   # Annotation for json serialization 
   json_annotation: ^4.9.0
+  pretty_dio_logger: ^1.4.0
+  retrofit: ^4.2.0
 cupertino_icons: ^1.0.6
 #A powerful HTTP networking package, supports Interceptors, Aborting and canceling a request, Custom adapters, Transformers, etc.
 dio: ^5.5.0+1
@@ -64,6 +69,7 @@ flutter_svg: ^2.0.10+1
 flutter_screenutil: ^5.9.3
 
 dev_dependencies:
+  retrofit_generator: ^8.1.2
   flutter_test:
     sdk: flutter
 
@@ -73,6 +79,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
+  json_serializable: ^6.8.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
