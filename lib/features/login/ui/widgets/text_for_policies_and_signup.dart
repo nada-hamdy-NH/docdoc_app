@@ -1,8 +1,8 @@
 import 'package:docdoc/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 
-class TextForPoliciesAndSignup extends StatelessWidget {
-  const TextForPoliciesAndSignup({super.key});
+class TextForPolicies extends StatelessWidget {
+  const TextForPolicies({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class TextForPoliciesAndSignup extends StatelessWidget {
       textAlign: TextAlign.center,
       text:TextSpan(
         children: <TextSpan>[
-       TextSpan(
+        TextSpan(
           text: 'By logging you agree to our ',
           style: TextStyles.font12GrayRegular),
           TextSpan(
@@ -19,7 +19,7 @@ class TextForPoliciesAndSignup extends StatelessWidget {
               ),
               TextSpan(text: ' and ', style: TextStyles.font12GrayRegular),
                 TextSpan(text: 'Privacy Policy .',
-                 style: TextStyles.font13DarkBlueMedium,
+                style: TextStyles.font13DarkBlueMedium,
 
 
       )])
