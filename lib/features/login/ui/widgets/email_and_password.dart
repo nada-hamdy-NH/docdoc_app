@@ -52,6 +52,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           AppTextFormField(
             hintText: "Email",
             validator: (value) {
+              // ignore: unnecessary_null_comparison
               if (value == null || value.isEmpty || !AppRegex.isEmailValid(value)) {
                 return "Please enter a valid email";
               }
@@ -73,6 +74,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                   Icon(isObscureText ? Icons.visibility : Icons.visibility_off),
             ),
             validator: (value) {
+              // ignore: unnecessary_null_comparison
               if (value == null || value.isEmpty) {
                 return "Please enter a valid password";
               }
