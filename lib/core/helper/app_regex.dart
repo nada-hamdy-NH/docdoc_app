@@ -9,6 +9,9 @@ class AppRegex {
             r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
         .hasMatch(password);
   }
+  static bool isPhoneValid(String phone) {
+    return RegExp(r'^(010|011|012|015)[0-9]{8}$').hasMatch(phone); 
+  }
 
   static bool hasLowercase(String password) {
     return RegExp(r'^(?=.*[a-z])').hasMatch(password);

@@ -12,9 +12,11 @@ TextEditingController emailController = TextEditingController();
 TextEditingController passwordController = TextEditingController();
 final formKey = GlobalKey<FormState>();
 
-  void emitLoginState(LoginRequestBody loginRequestBody) async {
+  void emitLoginState() async {
     emit(const LoginState.loading());
-    final response = await loginRepo.login(loginRequestBody);
+    final response = await loginRepo.login(LoginRequestBody(
+      email: emailController.text,
+      password: passwordController.text));
     response.when(success: (LoginResponse) {
       emit(LoginState.success(LoginResponse));
     }, failure: (error) {
