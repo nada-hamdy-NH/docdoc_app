@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:docdoc/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,12 +25,12 @@ final formKey = GlobalKey<FormState>();
               height: 55.h,
               padding: EdgeInsets.symmetric(horizontal: 18.w),
               decoration: BoxDecoration(
-              border: Border.all(color: Color(0xFFEDEDED)),
+              border: Border.all(color: const Color(0xFFEDEDED)),
                 borderRadius: BorderRadiusDirectional.circular(16.r ),
               ),
               child:TextField(
               decoration: InputDecoration(
-                fillColor: Color(0xFFFDFDFF),
+                fillColor: const Color(0xFFFDFDFF),
                 hintText:"Email",
                 hintStyle: TextStyles.font14LiteGrayMediam,
                 border: InputBorder.none,                 
@@ -43,12 +42,12 @@ final formKey = GlobalKey<FormState>();
               height: 55.h,
               padding: EdgeInsets.symmetric(horizontal: 18.w),
               decoration: BoxDecoration(
-              border: Border.all(color: Color(0xFFEDEDED)),
+              border: Border.all(color: const Color(0xFFEDEDED)),
                 borderRadius: BorderRadiusDirectional.circular(16.r ),
               ),
               child:TextField(
               decoration: InputDecoration(
-                fillColor: Color(0xFFFDFDFF),
+                fillColor: const Color(0xFFFDFDFF),
                 hintText:"Password",
                 hintStyle: TextStyles.font14LiteGrayMediam,
                 border: InputBorder.none,                 
@@ -67,7 +66,7 @@ final formKey = GlobalKey<FormState>();
                     width: 2.0
                   ),
                   
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                   
                     borderRadius:BorderRadius.all(Radius.circular(4)) ),
                   onChanged:(value){
