@@ -71,7 +71,7 @@ class TextStyles {
   static TextStyle font12GrayRegular = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.regular,
-    color: Color(0xFF9E9E9E),
+    color: const Color(0xFF9E9E9E),
   );
 
   static TextStyle font12BlueRegular = TextStyle(
