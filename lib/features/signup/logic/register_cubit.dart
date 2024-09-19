@@ -14,7 +14,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController genderController = TextEditingController();
-  RegisterCubit(this.registerRepo) : super(RegisterState.initial());
+  RegisterCubit(this.registerRepo) : super(const RegisterState.initial());
   void emitRegisterState() async {
     emit(const RegisterState.loading());
     final response = await registerRepo.register(
