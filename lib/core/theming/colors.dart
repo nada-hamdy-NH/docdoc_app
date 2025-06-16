@@ -9,4 +9,9 @@ class ColorsManager {
   static const Color lightGray = Color(0xFFC2C2C2);
   static const Color LighterGray = Color(0xFFEDEDED);
   static const Color MoreLiteGray = Color(0xFFFDFDFF);
+  static const Color  MoreLiterGray = Color(0xFFF616161);
+  static const Color SomeLiteGray = Color(0xFFF5F5F5);
+  static const Color someLiterGray = Color(0xFFF4F8FF); 
+  
+
 }
