@@ -27,7 +27,7 @@ class LoginBlockListener extends StatelessWidget {
           },
           success: (data) {
             context.pop();
-            context.pushNamed(Routes.homeScreen);
+            context.pushNamed(Routes.home);
           },
           error: (error) {
             context.pop();
