@@ -1,8 +1,8 @@
+import 'package:docdoc/core/helper/constants.dart';
 import 'package:docdoc/core/routing/app_router.dart';
 import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/core/theming/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:docdoc/features/onbording/onbprding_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class DocApp extends StatelessWidget {
   final AppRouter appRouter;
@@ -21,8 +21,7 @@ class DocApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white
         ),
       debugShowCheckedModeBanner: false,
-      initialRoute:Routes.onBoardingScreen ,
-      home: const OnBoardingScreen(),
+      initialRoute:isLoggedIn?  Routes.home : Routes.loginScreen , 
     ));
   }
 }

@@ -1,3 +1,6 @@
+import 'package:docdoc/core/helper/constants.dart';
+import 'package:docdoc/core/helper/shared_preference.dart';
+import 'package:docdoc/core/networking/dio_factory.dart';
 import 'package:docdoc/features/login/data/models/login_request_body.dart';
 import 'package:docdoc/features/login/data/repos/login_repo.dart';
 import 'package:docdoc/features/login/logic/login_state.dart';
@@ -17,10 +20,16 @@ final formKey = GlobalKey<FormState>();
     final response = await loginRepo.login(LoginRequestBody(
       email: emailController.text,
       password: passwordController.text));
-    response.when(success: (LoginResponse) {
+    response.when(success: (LoginResponse)async {
+       await saveUserToken(LoginResponse.userData?.token ?? "");
       emit(LoginState.success(LoginResponse));
     }, failure: (error) {
       emit(LoginState.error(error: error.apiErrorModel.message ?? ""));
     });
   }
+}
+
+Future<void> saveUserToken(String token) async {
+  await SharedPrefHelper.setSecuredStorage(ConstantsPrfKeys.userToken, token);
+   DioFactory.setTokenIntoHeaderAfterLogin(token);
 }
