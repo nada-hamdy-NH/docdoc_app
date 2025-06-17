@@ -14,5 +14,9 @@ extension Navegation on BuildContext {
       routeName, predicate, arguments: arguments);
   }
   void pop() => Navigator.of(this).pop();
+}
+
+  extension  StringExtension on String? {
+    bool isNullOrEmpty() => this == null || this=="";
   
 }
