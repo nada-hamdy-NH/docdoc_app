@@ -1,18 +1,28 @@
 import 'package:docdoc/core/theming/colors.dart';
 import 'package:docdoc/core/theming/styles.dart';
+import 'package:docdoc/features/home/data/spesialization_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorSpeciality extends StatelessWidget {
-  const DoctorSpeciality({super.key});
+ final List<SpecializationData?>specializationDataLst;
+  const DoctorSpeciality({super.key, required this.specializationDataLst});
 
   @override
   Widget build(BuildContext context) {
-     List<List<String>> items = [
-      ["assets/images/man_doctor_europe.png", "General"],
-      ["assets/images/brain.png", "Neurologic"],
-      ["assets/images/baby.png", "Pediatric"],
-      ["assets/images/kidneys.png", "Radiology"],
+     List<String> items = [
+      "assets/images/man_doctor_europe.png",
+      "assets/images/brain.png",
+      "assets/images/baby.png",
+      "assets/images/kidneys.png",
+      "assets/images/man_doctor_europe.png",
+      "assets/images/brain.png",
+      "assets/images/baby.png",
+      "assets/images/kidneys.png",
+      "assets/images/man_doctor_europe.png",
+      "assets/images/brain.png",
+      "assets/images/baby.png",
+      "assets/images/kidneys.png",
     ];
     return  Padding(
                     padding:  EdgeInsets.symmetric(horizontal: 10.w) ,
@@ -20,7 +30,7 @@ class DoctorSpeciality extends StatelessWidget {
                       width: double.infinity,
                       height: 100.h,
                       child: ListView.builder(
-                          itemCount: items.length,
+                          itemCount: specializationDataLst.length ,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
                             return Row(
@@ -31,7 +41,7 @@ class DoctorSpeciality extends StatelessWidget {
                                     radius: 28.r,
                                     backgroundColor: ColorsManager.someLiterGray,
                                     child: Image.asset(
-                                      items[index][0],
+                                      items [index],
                                       width: 24.w,
                                       height: 24.h,
                                     ),
@@ -40,7 +50,7 @@ class DoctorSpeciality extends StatelessWidget {
                                     height: 10.h,
                                   ),
                                   Text(
-                                    items[index][1],
+                                    specializationDataLst[index]?.name ?? "",
                                     style: TextStyles.font12Black400Weight,
                                   )
                                 ]),

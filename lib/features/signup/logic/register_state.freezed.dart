@@ -84,9 +84,6 @@ class _$RegisterStateCopyWithImpl<T, $Res, $Val extends RegisterState<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -103,9 +100,6 @@ class __$$InitialImplCopyWithImpl<T, $Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
-
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -220,9 +214,6 @@ class __$$SignupLoadingImplCopyWithImpl<T, $Res>
   __$$SignupLoadingImplCopyWithImpl(_$SignupLoadingImpl<T> _value,
       $Res Function(_$SignupLoadingImpl<T>) _then)
       : super(_value, _then);
-
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -340,8 +331,6 @@ class __$$SignupSuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$SignupSuccessImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -381,9 +370,7 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SignupSuccessImplCopyWith<T, _$SignupSuccessImpl<T>> get copyWith =>
@@ -469,10 +456,7 @@ abstract class SignupSuccess<T> implements RegisterState<T> {
   const factory SignupSuccess(final T data) = _$SignupSuccessImpl<T>;
 
   T get data;
-
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SignupSuccessImplCopyWith<T, _$SignupSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -494,8 +478,6 @@ class __$$SignupErrorImplCopyWithImpl<T, $Res>
       _$SignupErrorImpl<T> _value, $Res Function(_$SignupErrorImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -534,9 +516,7 @@ class _$SignupErrorImpl<T> implements SignupError<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SignupErrorImplCopyWith<T, _$SignupErrorImpl<T>> get copyWith =>
@@ -623,10 +603,7 @@ abstract class SignupError<T> implements RegisterState<T> {
       _$SignupErrorImpl<T>;
 
   String get error;
-
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SignupErrorImplCopyWith<T, _$SignupErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
