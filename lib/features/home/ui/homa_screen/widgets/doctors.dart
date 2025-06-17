@@ -1,10 +1,11 @@
 import 'package:docdoc/core/theming/styles.dart';
+import 'package:docdoc/features/home/data/spesialization_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
-class Doctors extends StatelessWidget {
-  const Doctors({super.key});
+class DoctorsWidget extends StatelessWidget {
+ final List<Doctors?>? doctorsList ;
+  const DoctorsWidget({super.key ,required this.doctorsList});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class Doctors extends StatelessWidget {
                   height: 200.h,
                   width: double.infinity,
                   child: ListView.builder(
-                    itemCount: 3,
+                    itemCount: doctorsList!.length,
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10.0),
                       child: Container(
@@ -30,16 +31,11 @@ class Doctors extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                              Text("Dr. Randy Wigham",style: TextStyles.font18darkBlueSemiBold,),
+                              Text(doctorsList![index]!.name!,style: TextStyles.font18darkBlueSemiBold,),
                               SizedBox(height: 8.h,),
-                              Text("General | RSUD Gatot Subroto",style: TextStyles.font12GrayMedium),
+                              Text("${doctorsList![index]!.degree} | ${doctorsList![index]!.phone}",style: TextStyles.font12GrayMedium),
                               SizedBox(height: 8.h,),
-                              Row(
-                                children: [
-                                  SvgPicture.asset("assets/svgs/magic-star.svg" , width: 16.w,height: 16.h,),
-                                  Text("4.8 (4,279 reviews)",style: TextStyles.font12GrayMedium,)
-                                ],
-                              )
+                              Text(doctorsList![index]!.email!,style: TextStyles.font12GrayMedium,)
                               
                                                   ]),
                           )

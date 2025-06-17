@@ -1,10 +1,8 @@
 import 'package:docdoc/core/theming/styles.dart';
-import 'package:docdoc/features/home/ui/homa_screen/widgets/doctor_speciality.dart';
-import 'package:docdoc/features/home/ui/homa_screen/widgets/doctors.dart';
 import 'package:docdoc/features/home/ui/homa_screen/widgets/find_near_button.dart';
 import 'package:docdoc/features/home/ui/homa_screen/widgets/name_notificationIcon.dart';
+import 'package:docdoc/features/home/ui/homa_screen/widgets/specializations_and_doctors_builders.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -62,25 +60,10 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                 
-                const DoctorSpeciality(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 25.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Recommendation Doctor",
-                          style: TextStyles.font18darkBlueSemiBold,
-                        ),
-                        const Spacer(),
-                        Text(
-                          "See All",
-                          style: TextStyles.font12BlueRegular,
-                        )
-                      ],
-                    ),
-                  ),
-                  const Doctors(),
+                
+               SpecializationsAndDoctorsBuilders()
+                
                ],)));
   }
 }
+
