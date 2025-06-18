@@ -3,9 +3,9 @@ import 'package:docdoc/features/home/data/spesialization_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DoctorsWidget extends StatelessWidget {
+class DoctorsListView extends StatelessWidget {
  final List<Doctors?>? doctorsList ;
-  const DoctorsWidget({super.key ,required this.doctorsList});
+  const DoctorsListView({super.key ,required this.doctorsList});
 
   @override
   Widget build(BuildContext context) {
