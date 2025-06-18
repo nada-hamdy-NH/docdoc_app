@@ -1,7 +1,8 @@
 import 'package:docdoc/core/theming/styles.dart';
+import 'package:docdoc/features/home/ui/homa_screen/doctors_list/doctors_bloc_builder.dart';
 import 'package:docdoc/features/home/ui/homa_screen/widgets/find_near_button.dart';
 import 'package:docdoc/features/home/ui/homa_screen/widgets/name_notificationIcon.dart';
-import 'package:docdoc/features/home/ui/homa_screen/widgets/specializations_and_doctors_builders.dart';
+import 'package:docdoc/features/home/ui/homa_screen/speciality_list_view/specializations_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -61,8 +62,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 
-               SpecializationsAndDoctorsBuilders()
-                
+               SpecializationsBlocBuilder(),
+               SizedBox(height: 15.h,),
+                DoctorsBlocBuilder() 
                ],)));
   }
 }
