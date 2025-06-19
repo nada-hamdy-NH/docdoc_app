@@ -24,7 +24,7 @@ class DoctorsListView extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(16.r)
                         ),
-                        child:DoctorListViewItem(index: index,doctorsList: doctorsList ?? [],)
+                        child:DoctorListViewItem(index: index,doctorsList: doctorsList,)
                       ),
                     )
                                  ),
