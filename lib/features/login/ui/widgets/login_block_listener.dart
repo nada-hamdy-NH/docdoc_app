@@ -1,4 +1,5 @@
 import 'package:docdoc/core/helper/extensions.dart';
+import 'package:docdoc/core/networking/api_error_model.dart';
 import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/core/theming/colors.dart';
 import 'package:docdoc/core/theming/styles.dart';
@@ -14,10 +15,10 @@ class LoginBlockListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is Error,
+          current is LoginLoading || current is LoginSuccess || current is LoginError,
       listener: (context, state) {
         state.whenOrNull(
-          loading: () {
+          Loginloading: () {
             showDialog(
               context: context,
               builder: (context) => const Center(
@@ -25,11 +26,11 @@ class LoginBlockListener extends StatelessWidget {
                       CircularProgressIndicator(color: ColorsManager.mainBlue)),
             );
           },
-          success: (data) {
+          Loginsuccess: (data) {
             context.pop();
             context.pushNamed(Routes.home);
           },
-          error: (error) {
+          Loginerror: (apiErrorModel) {
             context.pop();
             showDialog(
                 context: context,
@@ -40,7 +41,7 @@ class LoginBlockListener extends StatelessWidget {
                         size: 32,
                       ),
                       content:
-                          Text(error, style: TextStyles.font15DarkBlueMedium),
+                          Text(apiErrorModel.allErrorMasseges(), style: TextStyles.font15DarkBlueMedium),
                       actions: [
                         TextButton(
                             onPressed: () {

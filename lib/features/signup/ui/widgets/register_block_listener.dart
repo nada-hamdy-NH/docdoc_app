@@ -1,4 +1,5 @@
 import 'package:docdoc/core/helper/extensions.dart';
+import 'package:docdoc/core/networking/api_error_model.dart';
 import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/core/theming/colors.dart';
 import 'package:docdoc/core/theming/styles.dart';
@@ -30,8 +31,8 @@ class RegisterBlockListener extends StatelessWidget {
           succes: (data) {
             showSuccessDialog(context);
           },
-          error: (error) {
-            setupErrorState(context, error);
+          error: ( ApiErrorModel apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           }
         );
       },
@@ -72,7 +73,7 @@ void showSuccessDialog(BuildContext context) {
 }
 
 
-void setupErrorState(BuildContext context, String error) {
+void setupErrorState(BuildContext context,ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
       context: context,
@@ -83,7 +84,7 @@ void setupErrorState(BuildContext context, String error) {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.allErrorMasseges(),
           style: TextStyles.font15DarkBlueMedium,
         ),
         actions: [
