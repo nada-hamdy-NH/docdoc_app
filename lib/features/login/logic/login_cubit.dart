@@ -16,15 +16,15 @@ TextEditingController passwordController = TextEditingController();
 final formKey = GlobalKey<FormState>();
 
   void emitLoginState() async {
-    emit(const LoginState.loading());
+    emit(const LoginState.Loginloading());
     final response = await loginRepo.login(LoginRequestBody(
       email: emailController.text,
       password: passwordController.text));
     response.when(success: (LoginResponse)async {
        await saveUserToken(LoginResponse.userData?.token ?? "");
-      emit(LoginState.success(LoginResponse));
-    }, failure: (error) {
-      emit(LoginState.error(error: error.apiErrorModel.message ?? ""));
+      emit(LoginState.Loginsuccess(LoginResponse));
+    }, failure: (ApiErrorModel) {
+      emit(LoginState.Loginerror(ApiErrorModel));
     });
   }
 }
