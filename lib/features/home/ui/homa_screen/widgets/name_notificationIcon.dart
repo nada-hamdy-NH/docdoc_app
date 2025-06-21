@@ -1,3 +1,4 @@
+import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/core/theming/colors.dart';
 import 'package:docdoc/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -31,13 +32,18 @@ class NameNotificationIcon extends StatelessWidget {
                       SizedBox(
                         width: 195.w,
                       ),
-                      CircleAvatar(
-                        radius: 24.r,
-                        backgroundColor: ColorsManager.SomeLiteGray,
-                        child: SvgPicture.asset(
-                          "assets/svgs/Button.svg",
-                          width: 23.w,
-                          height: 23.h,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacementNamed(context, Routes.notificationScreen);
+                        },
+                        child: CircleAvatar(
+                          radius: 24.r,
+                          backgroundColor: ColorsManager.SomeLiteGray,
+                          child: SvgPicture.asset(
+                            "assets/svgs/Button.svg",
+                            width: 23.w,
+                            height: 23.h,
+                          ),
                         ),
                       )
                     ],
