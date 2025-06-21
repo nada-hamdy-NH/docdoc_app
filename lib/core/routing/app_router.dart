@@ -3,6 +3,7 @@ import'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/features/home/logic/home_cubit.dart';
 import 'package:docdoc/features/home/ui/home/home.dart';
 import 'package:docdoc/features/login/logic/login_cubit.dart';
+import 'package:docdoc/features/notification/ui/notification_screen.dart';
 import 'package:docdoc/features/signup/logic/register_cubit.dart';
 import 'package:docdoc/features/signup/ui/signup_screen.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,11 @@ class AppRouter{
         child: const SignupScreen(),
         )
       );
+
+      case Routes.notificationScreen:
+        return MaterialPageRoute(
+          builder: (_)=>NotificationScreen());
+            
         default:
         return MaterialPageRoute(
           builder: (_)=>Scaffold(
