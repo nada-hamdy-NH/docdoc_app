@@ -12,6 +12,11 @@ class ColorsManager {
   static const Color  MoreLiterGray = Color(0xFFF616161);
   static const Color SomeLiteGray = Color(0xFFF5F5F5);
   static const Color someLiterGray = Color(0xFFF4F8FF); 
-  
+  static const Color liteGray = Color(0xFF9E9E9E);
+  static const Color    liteGreen  =  Color(0xFFE9FAEF); 
+  static const Color liteRed = Color(0xFFFF4C5E);
+  static const Color liteBlue = Color(0xFFEAF2FF);
+  static const Color literRed = Color(0xFFFFEEEF);
+  static const Color liteBackground = Color(0xFFF2F4F7);
 
 }
