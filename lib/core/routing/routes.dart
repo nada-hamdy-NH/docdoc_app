@@ -4,4 +4,5 @@ class Routes {
   static const String home = '/home' ; 
   static const String signUpScreen = '/signUpScreen' ;
   static const String notificationScreen = '/notificationScreen' ;
+  static const String specialityScreen = '/specialityScreen' ;
 }

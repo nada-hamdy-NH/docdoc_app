@@ -24,7 +24,7 @@ class _HomeScreenState extends State<Home> {
         PageView(
           controller: pageController,
           physics: const NeverScrollableScrollPhysics(),
-          children:const [
+          children: [
             HomeScreen(),
             MessagesScreen(),
             SearchScreen(),
