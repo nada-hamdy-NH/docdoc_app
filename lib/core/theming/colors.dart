@@ -18,5 +18,6 @@ class ColorsManager {
   static const Color liteBlue = Color(0xFFEAF2FF);
   static const Color literRed = Color(0xFFFFEEEF);
   static const Color liteBackground = Color(0xFFF2F4F7);
+  static const Color speciality_background = Color(0xff247CFF);
 
 }

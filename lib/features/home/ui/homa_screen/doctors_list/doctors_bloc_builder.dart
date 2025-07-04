@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DoctorsBlocBuilder extends StatelessWidget {
-  const DoctorsBlocBuilder({super.key});
+  const DoctorsBlocBuilder(specializationDataList, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +24,7 @@ class DoctorsBlocBuilder extends StatelessWidget {
             orElse: () => const SizedBox.shrink(),
           );
         });
+      
   }
 }
 

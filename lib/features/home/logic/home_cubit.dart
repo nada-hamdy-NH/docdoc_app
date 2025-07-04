@@ -1,7 +1,7 @@
 
 
 import 'package:docdoc/core/helper/extensions.dart';
-import 'package:docdoc/core/networking/api_error_model.dart';
+import 'package:docdoc/core/helper/lists.dart';
 import 'package:docdoc/features/home/data/repo/home_repo.dart';
 import 'package:docdoc/features/home/data/spesialization_response_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +11,6 @@ import 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeRepo homeRepo ; 
   HomeCubit( this.homeRepo) : super(const HomeState.initial());
-List<SpecializationData?>? specializationDataList = [];
   void getSpesializations()async {
   
       emit(const HomeState.spesializationLoading());
@@ -20,18 +19,20 @@ List<SpecializationData?>? specializationDataList = [];
         specializationDataList = SpesializationResponseModel.specializationDataList ?? [];
         getDoctors(specializationId: specializationDataList?.first?.id ?? 1);
         emit(HomeState.spesializationsSuccess( specializationDataList));
-      }, failure: (ApiErrorModel) {
-        emit(HomeState.spesializationError(ApiErrorModel ));
+        
+
+      }, failure: (apiErrorModel) {
+        emit(HomeState.spesializationError(apiErrorModel ));
       });
     
   }
 
   void getDoctors({required int specializationId})async{
-    List<Doctors?>? DoctorsList = getDoctorsListBySpecializationId(specializationId);
-    if(!DoctorsList.isNullOrEmpty()){
-    emit(HomeState.doctorSuccess(DoctorsList)); 
+    List<Doctors?>? doctorsList = getDoctorsListBySpecializationId(specializationId);
+    if(!doctorsList.isNullOrEmpty()){
+    emit(HomeState.doctorSuccess(doctorsList)); 
     }else{
-      emit(HomeState.doctorError());
+      emit(const HomeState.doctorError());
     }
   }
 
@@ -42,4 +43,6 @@ List<SpecializationData?>? specializationDataList = [];
     ?.doctorsList;
   
 }
+
+
 }
