@@ -1,4 +1,5 @@
 import 'package:docdoc/core/theming/styles.dart';
+import 'package:docdoc/features/home/data/spesialization_response_model.dart';
 import 'package:docdoc/features/home/logic/home_cubit.dart';
 import 'package:docdoc/features/home/logic/home_state.dart';
 import 'package:docdoc/features/home/ui/homa_screen/doctors_list/doctor_shimmer_loading.dart';
@@ -9,7 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SpecializationsBlocBuilder extends StatelessWidget {
-  const SpecializationsBlocBuilder({super.key});
+  List<SpecializationData?>? spesializationDataList;
+   SpecializationsBlocBuilder({super.key , this.spesializationDataList});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class SpecializationsBlocBuilder extends StatelessWidget {
               return setUpLoading();
             },
             spesializationsSuccess: (specializationDataList) {
-              var spesializationDataList = specializationDataList;
+               spesializationDataList = specializationDataList;
               return setUpSuccess(spesializationDataList);
             },
             spesializationError: (errorHandler) {

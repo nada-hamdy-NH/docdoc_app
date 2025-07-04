@@ -1,4 +1,6 @@
+import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/core/theming/styles.dart';
+import 'package:docdoc/features/home/data/spesialization_response_model.dart';
 import 'package:docdoc/features/home/ui/homa_screen/doctors_list/doctors_bloc_builder.dart';
 import 'package:docdoc/features/home/ui/homa_screen/widgets/find_near_button.dart';
 import 'package:docdoc/features/home/ui/homa_screen/widgets/name_notificationIcon.dart';
@@ -7,7 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  List<SpecializationData?>? specializationDataList;
+   HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +57,14 @@ class HomeScreen extends StatelessWidget {
                           style: TextStyles.font18darkBlueSemiBold,
                         ),
                       const  Spacer(),
-                        Text(
-                          "See All",
-                          style: TextStyles.font12BlueRegular,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, Routes.specialityScreen , );
+                          },
+                          child: Text(
+                            "See All",
+                            style: TextStyles.font12BlueRegular,
+                          ),
                         )
                       ],
                     ),
@@ -64,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                 
                SpecializationsBlocBuilder(),
                SizedBox(height: 15.h,),
-                DoctorsBlocBuilder() 
+                DoctorsBlocBuilder(specializationDataList) 
                ],)));
   }
 }

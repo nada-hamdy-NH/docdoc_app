@@ -25,7 +25,7 @@ class ApiErrorHandler{
   }
 }
 
-ApiErrorModel _handleError( dynamic data) {
+ApiErrorModel _handleError(  data) {
   return ApiErrorModel(
     message:data["message"]?? "Something went wrong",
      errors: data["data"]
