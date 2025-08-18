@@ -15,7 +15,7 @@ class StepThreeContent extends StatelessWidget {
   final String paymentOption ;
   final String appointmentType ;
   StepThreeContent({super.key ,
-   required this.doctorInfo , required this.image, required this.selectedDate, required this.selectedTime, required this.appointmentType, required this.paymentOption});
+   required this.doctorInfo , required this.image, required this.selectedDate , required this.selectedTime, required this.appointmentType, required this.paymentOption});
 
   final List<Map<String, String>> bookingInfo = [
     {

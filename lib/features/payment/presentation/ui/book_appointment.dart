@@ -125,8 +125,8 @@ class _BookAppointmentState extends State<BookAppointment> {
                           : StepThreeContent(
                               doctorInfo: widget.doctorInfo!,
                               image: widget.image,
-                              selectedDate: selectedDate!,
-                              selectedTime: selectedTime!,
+                              selectedDate: selectedDate ?? DateTime.now(),
+                              selectedTime: selectedTime ?? times[0],
                               appointmentType:
                                   appointmentTypes[selectedAppointmentTypeIndex]
                                       ["title"]!,
