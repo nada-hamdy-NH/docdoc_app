@@ -23,16 +23,17 @@ class SignupScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 74.h, horizontal: 31.63.w),
             child: Column(
               children: [
-                  const AppText(addressText: "Create Account" ,
-                  text: "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!"
-                  ),
-                  verticalSpace(35),
-                const SignUpForm() ,
+                const AppText(
+                    addressText: "Create Account",
+                    text:
+                        "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!"),
+                verticalSpace(35),
+                const SignUpForm(),
                 verticalSpace(24),
                 AppTextButton(
                     textStyle: TextStyles.font16WhiteSemiBold,
                     buttonText: "Create Account",
-                    onPressed:() {
+                    onPressed: () {
                       validateThenDoRegister(context);
                     }),
                 verticalSpace(16),
@@ -46,15 +47,11 @@ class SignupScreen extends StatelessWidget {
         ),
       ),
     );
-    
-    
-    
   }
-  
+
   void validateThenDoRegister(BuildContext context) {
-    if(context.read<RegisterCubit>().formKey.currentState!.validate()) {
+    if (context.read<RegisterCubit>().formKey.currentState!.validate()) {
       context.read<RegisterCubit>().emitRegisterState();
     }
-    
   }
 }

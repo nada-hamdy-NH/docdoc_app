@@ -19,57 +19,55 @@ class SpecilityScreen extends StatelessWidget {
         height: 38.h,
         fit: BoxFit.cover,
       ),
-    Image.asset(
-      "assets/images/Dermatology.png",
+      Image.asset(
+        "assets/images/Dermatology.png",
         width: 38.w,
         height: 38.h,
         fit: BoxFit.cover,
-    ),
-       Image.asset(
+      ),
+      Image.asset(
         "assets/images/brain.png",
         width: 38.w,
         height: 38.h,
         fit: BoxFit.cover,
       ),
-       Image.asset(
+      Image.asset(
         "assets/images/Orthopedics.png",
         width: 38.w,
         height: 38.h,
         fit: BoxFit.cover,
       ),
-         Image.asset(
+      Image.asset(
         "assets/images/baby.png",
         width: 38.w,
         height: 38.h,
         fit: BoxFit.cover,
       ),
-         Image.asset(
+      Image.asset(
         "assets/images/Gynecology.png",
         width: 38.w,
         height: 38.h,
         fit: BoxFit.cover,
       ),
-    
-        SvgPicture.asset(
+      SvgPicture.asset(
         "assets/svgs/optometary.svg",
         width: 38.w,
         height: 38.h,
         fit: BoxFit.cover,
       ),
-     
-        Image.asset(
+      Image.asset(
         "assets/images/Urologist.png",
         width: 38.w,
         height: 38.h,
         fit: BoxFit.cover,
       ),
-        SvgPicture.asset(
+      SvgPicture.asset(
         "assets/svgs/histologist.svg",
         width: 38.w,
         height: 38.h,
         fit: BoxFit.cover,
       ),
-        Image.asset(
+      Image.asset(
         "assets/images/Psychiatry.png",
         width: 38.w,
         height: 38.h,
@@ -78,7 +76,7 @@ class SpecilityScreen extends StatelessWidget {
     ];
     return SafeArea(
         child: Scaffold(
-          backgroundColor: Colors.white,
+            backgroundColor: Colors.white,
             body: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 32.0, horizontal: 20),
@@ -119,8 +117,9 @@ class SpecilityScreen extends StatelessWidget {
                                   children: [
                                     CircleAvatar(
                                       radius: 40.r,
-                                      backgroundColor:
-                                          ColorsManager.speciality_background.withOpacity(0.05),
+                                      backgroundColor: ColorsManager
+                                          .speciality_background
+                                          .withOpacity(0.05),
                                       child: specialityImagesList[index],
                                     ),
                                     verticalSpace(8),
@@ -128,7 +127,7 @@ class SpecilityScreen extends StatelessWidget {
                                       width:
                                           80, // for consistent text alignment
                                       child: Text(
-                                        specialization?.name ?? "",
+                                        specialization.name ?? "",
                                         textAlign: TextAlign.center,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,

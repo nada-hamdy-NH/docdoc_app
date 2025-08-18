@@ -92,15 +92,15 @@ class _SignUpFormState extends State<SignUpForm> {
           AppTextFormField(
               hintText: "Password",
               isObscureText: isObscureText,
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isObscureText = !isObscureText;
-                });
-              },
-              child:
-                  Icon(isObscureText ? Icons.visibility : Icons.visibility_off),
-            ),
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isObscureText = !isObscureText;
+                  });
+                },
+                child: Icon(
+                    isObscureText ? Icons.visibility : Icons.visibility_off),
+              ),
               validator: (value) {
                 // ignore: unnecessary_null_comparison
                 if (value == null ||
@@ -114,15 +114,15 @@ class _SignUpFormState extends State<SignUpForm> {
           AppTextFormField(
               hintText: "Confirm Password",
               isObscureText: isObscureText,
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isObscureText = !isObscureText;
-                });
-              },
-              child:
-                  Icon(isObscureText ? Icons.visibility : Icons.visibility_off),
-            ),
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isObscureText = !isObscureText;
+                  });
+                },
+                child: Icon(
+                    isObscureText ? Icons.visibility : Icons.visibility_off),
+              ),
               validator: (value) {
                 // ignore: unnecessary_null_comparison
                 if (value == null ||

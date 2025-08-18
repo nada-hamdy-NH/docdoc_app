@@ -19,22 +19,18 @@ class RegisterBlockListener extends StatelessWidget {
           current is SignupSuccess ||
           current is SignupError,
       listener: (context, state) {
-        state.whenOrNull(
-          loading: () {
-            showDialog(
-              context: context,
-              builder: (context) => const Center(
-                  child:
-                      CircularProgressIndicator(color: ColorsManager.mainBlue)),
-            );
-          },
-          succes: (data) {
-            showSuccessDialog(context);
-          },
-          error: ( ApiErrorModel apiErrorModel) {
-            setupErrorState(context, apiErrorModel);
-          }
-        );
+        state.whenOrNull(loading: () {
+          showDialog(
+            context: context,
+            builder: (context) => const Center(
+                child:
+                    CircularProgressIndicator(color: ColorsManager.mainBlue)),
+          );
+        }, succes: (data) {
+          showSuccessDialog(context);
+        }, error: (ApiErrorModel apiErrorModel) {
+          setupErrorState(context, apiErrorModel);
+        });
       },
       child: const SizedBox.shrink(),
     );
@@ -72,33 +68,31 @@ void showSuccessDialog(BuildContext context) {
   );
 }
 
-
-void setupErrorState(BuildContext context,ApiErrorModel apiErrorModel) {
-    context.pop();
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
-        content: Text(
-          apiErrorModel.allErrorMasseges(),
-          style: TextStyles.font15DarkBlueMedium,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              context.pop();
-            },
-            child: Text(
-              'Got it',
-              style: TextStyles.font14BlueSemiBold,
-            ),
-          ),
-        ],
+void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
+  context.pop();
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      icon: const Icon(
+        Icons.error,
+        color: Colors.red,
+        size: 32,
       ),
-    );
-  }
-
+      content: Text(
+        apiErrorModel.allErrorMasseges(),
+        style: TextStyles.font15DarkBlueMedium,
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            context.pop();
+          },
+          child: Text(
+            'Got it',
+            style: TextStyles.font14BlueSemiBold,
+          ),
+        ),
+      ],
+    ),
+  );
+}
