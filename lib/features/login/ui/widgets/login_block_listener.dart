@@ -15,7 +15,9 @@ class LoginBlockListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listenWhen: (previous, current) =>
-          current is LoginLoading || current is LoginSuccess || current is LoginError,
+          current is LoginLoading ||
+          current is LoginSuccess ||
+          current is LoginError,
       listener: (context, state) {
         state.whenOrNull(
           Loginloading: () {
@@ -40,8 +42,8 @@ class LoginBlockListener extends StatelessWidget {
                         color: Colors.red,
                         size: 32,
                       ),
-                      content:
-                          Text(apiErrorModel.allErrorMasseges(), style: TextStyles.font15DarkBlueMedium),
+                      content: Text(apiErrorModel.allErrorMasseges(),
+                          style: TextStyles.font15DarkBlueMedium),
                       actions: [
                         TextButton(
                             onPressed: () {

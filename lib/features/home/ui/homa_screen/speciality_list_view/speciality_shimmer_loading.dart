@@ -27,7 +27,9 @@ class SpecialityShimmerLoading extends StatelessWidget {
                     backgroundColor: Colors.white,
                   ),
                 ),
-                SizedBox(height: 14.h,),
+                SizedBox(
+                  height: 14.h,
+                ),
                 Shimmer.fromColors(
                   baseColor: ColorsManager.lightGray,
                   highlightColor: Colors.white,

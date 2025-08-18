@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:docdoc/core/helper/constants.dart';
 import 'package:docdoc/core/helper/shared_preference.dart';
@@ -26,18 +25,17 @@ class DioFactory {
     }
   }
 
-
   static void setTokenIntoHeaderAfterLogin(String token) {
     dio?.options.headers = {
       'Authorization': 'Bearer $token',
-      
     };
   }
 
-  static void addDioHeaders()async {
+  static void addDioHeaders() async {
     dio?.options.headers = {
       'Accept': 'application/json',
-      'Authorization': 'Bearer ${await SharedPrefHelper.getSecuredStorage(ConstantsPrfKeys.userToken)}',
+      'Authorization':
+          'Bearer ${await SharedPrefHelper.getSecuredStorage(ConstantsPrfKeys.userToken)}',
     };
   }
 

@@ -22,6 +22,6 @@ class UserData {
   String? userName;
   UserData({this.token, this.userName});
 
-factory UserData.fromJson(Map<String, dynamic> json) =>
-    _$UserDataFromJson(json);
+  factory UserData.fromJson(Map<String, dynamic> json) =>
+      _$UserDataFromJson(json);
 }

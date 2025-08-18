@@ -1,5 +1,9 @@
 import 'package:docdoc/core/di/dependency_injection.dart';
 import 'package:docdoc/core/routing/routes.dart';
+import 'package:docdoc/features/doctors/data/doctors_model.dart';
+import 'package:docdoc/features/doctors/logic/doctors_cubit.dart';
+import 'package:docdoc/features/doctors/ui/doctor_details.dart';
+import 'package:docdoc/features/doctors/ui/filter_doctors.dart';
 import 'package:docdoc/features/home/data/spesialization_response_model.dart';
 import 'package:docdoc/features/home/logic/home_cubit.dart';
 import 'package:docdoc/features/home/ui/home/home.dart';
@@ -45,11 +49,21 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const NotificationScreen());
 
       case Routes.specialityScreen:
-  
+        return MaterialPageRoute(builder: (_) => SpecilityScreen());
+
+      case Routes.doctorScreen:
         return MaterialPageRoute(
-          builder: (_) => SpecilityScreen()
-          );
-           
+            builder: (_) => BlocProvider(
+                create: (context) => DoctorsCubit(getIt())..getDoctors(),
+                child: const FilterDoctorsScreen()));
+
+      case Routes.doctorDetailsScreen:
+        final args = settings.arguments as List;
+        final doctor = args[0] as Doctor;
+        final image = args[1] as String;
+
+        return MaterialPageRoute(
+            builder: (_) => DoctorDetailsScreen(doctor: doctor, image: image));
 
       default:
         return MaterialPageRoute(

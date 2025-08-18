@@ -11,8 +11,7 @@ class DoctorsBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
         buildWhen: (previous, current) =>
-            current is DoctorSuccess ||
-            current is DoctorError , 
+            current is DoctorSuccess || current is DoctorError,
         builder: (context, state) {
           return state.maybeWhen(
             doctorSuccess: (doctorsList) {
@@ -24,15 +23,9 @@ class DoctorsBlocBuilder extends StatelessWidget {
             orElse: () => const SizedBox.shrink(),
           );
         });
-      
   }
 }
 
-
 Widget setUpSuccess(doctorsList) {
-  return   DoctorsListView(doctorsList:  doctorsList);
-  
-  
+  return DoctorsListView(doctorsList: doctorsList);
 }
-
- 

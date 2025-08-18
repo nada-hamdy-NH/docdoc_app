@@ -7,9 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'doc_app.dart';
 
-
 void main() async {
-WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   setupGetIt();
   // to fix texts beinh hideen in flutter screen util in release mode
   await checkedIfLoggedInUser();
@@ -20,10 +19,11 @@ WidgetsFlutterBinding.ensureInitialized();
 }
 
 Future checkedIfLoggedInUser() async {
-  String? userToken = await SharedPrefHelper.getSecuredStorage(ConstantsPrfKeys.userToken);
-  if (!userToken.isNullOrEmpty() ) {
+  String? userToken =
+      await SharedPrefHelper.getSecuredStorage(ConstantsPrfKeys.userToken);
+  if (!userToken.isNullOrEmpty()) {
     isLoggedIn = true;
-    } else {
+  } else {
     isLoggedIn = false;
   }
 }

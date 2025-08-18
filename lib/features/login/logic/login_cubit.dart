@@ -11,17 +11,16 @@ class LoginCubit extends Cubit<LoginState> {
   final LoginRepo loginRepo;
   LoginCubit(this.loginRepo) : super(const LoginState.initial());
 
-TextEditingController emailController = TextEditingController();
-TextEditingController passwordController = TextEditingController();
-final formKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
   void emitLoginState() async {
     emit(const LoginState.Loginloading());
     final response = await loginRepo.login(LoginRequestBody(
-      email: emailController.text,
-      password: passwordController.text));
-    response.when(success: (LoginResponse)async {
-       await saveUserToken(LoginResponse.userData?.token ?? "");
+        email: emailController.text, password: passwordController.text));
+    response.when(success: (LoginResponse) async {
+      await saveUserToken(LoginResponse.userData?.token ?? "");
       emit(LoginState.Loginsuccess(LoginResponse));
     }, failure: (ApiErrorModel) {
       emit(LoginState.Loginerror(ApiErrorModel));
@@ -31,5 +30,5 @@ final formKey = GlobalKey<FormState>();
 
 Future<void> saveUserToken(String token) async {
   await SharedPrefHelper.setSecuredStorage(ConstantsPrfKeys.userToken, token);
-   DioFactory.setTokenIntoHeaderAfterLogin(token);
+  DioFactory.setTokenIntoHeaderAfterLogin(token);
 }

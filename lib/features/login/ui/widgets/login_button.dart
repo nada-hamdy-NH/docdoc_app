@@ -11,9 +11,7 @@ class LoginButton extends StatelessWidget {
     return SizedBox(
       height: 52.h,
       child: TextButton(
-        onPressed: () {
-          
-        },
+        onPressed: () {},
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(ColorsManager.mainBlue),
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,

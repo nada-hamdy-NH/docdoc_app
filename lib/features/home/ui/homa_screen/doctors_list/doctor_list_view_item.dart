@@ -16,36 +16,36 @@ class DoctorListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(children: [
       CachedNetworkImage(
-            imageUrl:
-                "https://static.wikia.nocookie.net/five-world-war/images/6/64/Hisoka.jpg/revision/latest?cb=20190313114050",
-            progressIndicatorBuilder: (context, url, downloadProgress) {
-              return Shimmer.fromColors(
-                baseColor: ColorsManager.lightGray,
-                highlightColor: Colors.white,
-                child: Container(
-                  width: 110.w,
-                  height: 120.h,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(12.0),
-                    color: Colors.white,
-                  ),
-                ),
-              );
-            },
-            imageBuilder: (context, imageProvider) => Container(
+        imageUrl:
+            "https://static.wikia.nocookie.net/five-world-war/images/6/64/Hisoka.jpg/revision/latest?cb=20190313114050",
+        progressIndicatorBuilder: (context, url, downloadProgress) {
+          return Shimmer.fromColors(
+            baseColor: ColorsManager.lightGray,
+            highlightColor: Colors.white,
+            child: Container(
               width: 110.w,
               height: 120.h,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(12.0),
-                image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.cover,
-                ),
+                color: Colors.white,
               ),
             ),
+          );
+        },
+        imageBuilder: (context, imageProvider) => Container(
+          width: 110.w,
+          height: 120.h,
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(12.0),
+            image: DecorationImage(
+              image: imageProvider,
+              fit: BoxFit.cover,
+            ),
           ),
+        ),
+      ),
       Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

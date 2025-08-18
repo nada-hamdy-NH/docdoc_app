@@ -30,7 +30,7 @@ class DoctorsShimmerLoading extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(width:  16.w),
+                SizedBox(width: 16.w),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +47,7 @@ class DoctorsShimmerLoading extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height:  12.h),
+                      SizedBox(height: 12.h),
                       Shimmer.fromColors(
                         baseColor: ColorsManager.lightGray,
                         highlightColor: Colors.white,
@@ -60,7 +60,7 @@ class DoctorsShimmerLoading extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height:  12.h),
+                      SizedBox(height: 12.h),
                       Shimmer.fromColors(
                         baseColor: ColorsManager.lightGray,
                         highlightColor: Colors.white,
