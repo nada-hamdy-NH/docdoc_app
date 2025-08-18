@@ -51,7 +51,8 @@ class _SpecialityListViewState extends State<SpecialityListView> {
     setState(() {
       selectedSpecialityIndex = index;
     });
-      context.read<HomeCubit>().getDoctors(
-          specializationId: widget.specializationDataLst[index]!.id!);
+    context
+        .read<HomeCubit>()
+        .getDoctors(specializationId: widget.specializationDataLst[index]!.id!);
   }
 }

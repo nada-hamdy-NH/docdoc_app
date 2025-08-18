@@ -9,22 +9,22 @@ class ArrowBackContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.popAndPushNamed(context , Routes.home),
+      onTap: () => Navigator.popAndPushNamed(context, Routes.home),
       child: Container(
-                    padding: EdgeInsets.symmetric( horizontal: 12.0.w ),
-                     height: 40.0.h,
-                     width: 40.0.w,
-                     decoration: BoxDecoration(
-                       borderRadius: BorderRadius.circular(10.0.r),
-                       border:Border.all(color: ColorsManager.LighterGray,width: 1.0.w) ,
-                       color: Colors.white,
-                     ),
-                     child: Icon(
-                       Icons.arrow_back_ios,
-                       color: Colors.black,
-                       size: 20.0.w,
-                     ),
-                   ),
+        padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+        height: 40.0.h,
+        width: 40.0.w,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0.r),
+          border: Border.all(color: ColorsManager.LighterGray, width: 1.0.w),
+          color: Colors.white,
+        ),
+        child: Icon(
+          Icons.arrow_back_ios,
+          color: Colors.black,
+          size: 20.0.w,
+        ),
+      ),
     );
   }
 }

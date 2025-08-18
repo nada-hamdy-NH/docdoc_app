@@ -1,6 +1,5 @@
-
-
 bool isLoggedIn = false;
-class ConstantsPrfKeys{
+
+class ConstantsPrfKeys {
   static const String userToken = 'userToken';
 }

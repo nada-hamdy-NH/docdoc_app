@@ -54,7 +54,8 @@ class DefaultFirebaseOptions {
     appId: '1:204469417279:ios:5d71700b2eb13d65578f8a',
     messagingSenderId: '204469417279',
     projectId: 'flutter-app-distribution-e5c3a',
-    databaseURL: 'https://flutter-app-distribution-e5c3a-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://flutter-app-distribution-e5c3a-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'flutter-app-distribution-e5c3a.appspot.com',
     iosBundleId: 'com.example.docdoc',
   );
@@ -64,8 +65,8 @@ class DefaultFirebaseOptions {
     appId: '1:204469417279:android:330b9e690f51d1f4578f8a',
     messagingSenderId: '204469417279',
     projectId: 'flutter-app-distribution-e5c3a',
-    databaseURL: 'https://flutter-app-distribution-e5c3a-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://flutter-app-distribution-e5c3a-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'flutter-app-distribution-e5c3a.appspot.com',
   );
-
 }

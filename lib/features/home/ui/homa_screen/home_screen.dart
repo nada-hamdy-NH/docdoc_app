@@ -10,70 +10,73 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatelessWidget {
   List<SpecializationData?>? specializationDataList;
-   HomeScreen({super.key});
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-   
-    return  SafeArea(
-            child: Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 14.0.w, vertical: 25.h),
-                child: Column(children: [
+    return SafeArea(
+        child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 14.0.w, vertical: 25.h),
+            child: Column(
+              children: [
                 const NameNotificationIcon(),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 197.h,
-                    child: Column(children: [
-                      Expanded(
-                        flex: 2,
-                        child: Stack(children: [
-                          SizedBox(
-                            height: 197.h,
-                            width: double.infinity,
-                          ),
-                        const FindNearButton(),
-                          Positioned(
-                            top: 0,
-                            right: 16,
-                            child: Image(
-                              image: const AssetImage(
-                                "assets/images/Image.png",
-                              ),
-                              width: 136.w,
-                              height: 197.h,
-                            ),
-                          ),
-                        ]),
-                      ),
-                    ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 25.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Doctor Speciality",
-                          style: TextStyles.font18darkBlueSemiBold,
+                SizedBox(
+                  width: double.infinity,
+                  height: 197.h,
+                  child: Column(children: [
+                    Expanded(
+                      flex: 2,
+                      child: Stack(children: [
+                        SizedBox(
+                          height: 197.h,
+                          width: double.infinity,
                         ),
-                      const  Spacer(),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, Routes.specialityScreen , );
-                          },
-                          child: Text(
-                            "See All",
-                            style: TextStyles.font12BlueRegular,
+                        const FindNearButton(),
+                        Positioned(
+                          top: 0,
+                          right: 16,
+                          child: Image(
+                            image: const AssetImage(
+                              "assets/images/Image.png",
+                            ),
+                            width: 136.w,
+                            height: 197.h,
                           ),
-                        )
-                      ],
+                        ),
+                      ]),
                     ),
+                  ]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 25.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Doctor Speciality",
+                        style: TextStyles.font18darkBlueSemiBold,
+                      ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.specialityScreen,
+                          );
+                        },
+                        child: Text(
+                          "See All",
+                          style: TextStyles.font12BlueRegular,
+                        ),
+                      )
+                    ],
                   ),
-                
-               SpecializationsBlocBuilder(),
-               SizedBox(height: 15.h,),
-                DoctorsBlocBuilder(specializationDataList) 
-               ],)));
+                ),
+                SpecializationsBlocBuilder(),
+                SizedBox(
+                  height: 15.h,
+                ),
+                DoctorsBlocBuilder(specializationDataList)
+              ],
+            )));
   }
 }
-

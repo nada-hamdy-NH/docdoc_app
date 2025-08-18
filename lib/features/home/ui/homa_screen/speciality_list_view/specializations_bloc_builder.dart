@@ -1,3 +1,4 @@
+import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/core/theming/styles.dart';
 import 'package:docdoc/features/home/data/spesialization_response_model.dart';
 import 'package:docdoc/features/home/logic/home_cubit.dart';
@@ -11,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SpecializationsBlocBuilder extends StatelessWidget {
   List<SpecializationData?>? spesializationDataList;
-   SpecializationsBlocBuilder({super.key , this.spesializationDataList});
+  SpecializationsBlocBuilder({super.key, this.spesializationDataList});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,8 @@ class SpecializationsBlocBuilder extends StatelessWidget {
               return setUpLoading();
             },
             spesializationsSuccess: (specializationDataList) {
-               spesializationDataList = specializationDataList;
-              return setUpSuccess(spesializationDataList);
+              spesializationDataList = specializationDataList;
+              return setUpSuccess(spesializationDataList, context);
             },
             spesializationError: (errorHandler) {
               return const SizedBox.shrink();
@@ -42,26 +43,18 @@ class SpecializationsBlocBuilder extends StatelessWidget {
 
 Widget setUpLoading() {
   return const Expanded(
-    child:  Column(
-      children: [
-      SpecialityShimmerLoading() ,
-    DoctorsShimmerLoading() 
-    
-      ],
+    child: Column(
+      children: [SpecialityShimmerLoading(), DoctorsShimmerLoading()],
     ),
   );
-  
-
-  
 }
 
-
-Widget setUpSuccess(spesializationDataList) {
+Widget setUpSuccess(spesializationDataList, context) {
   return Column(
     children: [
       SpecialityListView(specializationDataLst: spesializationDataList ?? []),
       Padding(
-        padding:  EdgeInsets.symmetric(vertical: 15.h),
+        padding: EdgeInsets.symmetric(vertical: 15.h),
         child: Row(
           children: [
             Text(
@@ -69,9 +62,12 @@ Widget setUpSuccess(spesializationDataList) {
               style: TextStyles.font18darkBlueSemiBold,
             ),
             const Spacer(),
-            Text(
-              "See All",
-              style: TextStyles.font12BlueRegular,
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(context, Routes.doctorScreen),
+              child: Text(
+                "See All",
+                style: TextStyles.font12BlueRegular,
+              ),
             )
           ],
         ),

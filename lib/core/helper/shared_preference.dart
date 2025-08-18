@@ -70,27 +70,26 @@ class SharedPrefHelper {
     return sharedPreferences.getString(key) ?? '';
   }
 
-/// Saves a [value] with a [key] in the FlutterSecureStorage.
+  /// Saves a [value] with a [key] in the FlutterSecureStorage.
 
   static setSecuredStorage(String key, String value) async {
     const flutterSecureStorage = FlutterSecureStorage();
-    debugPrint("flutterSecureStorage : setData with key : $key and value : $value");
-     await flutterSecureStorage.write(key: key, value: value);
+    debugPrint(
+        "flutterSecureStorage : setData with key : $key and value : $value");
+    await flutterSecureStorage.write(key: key, value: value);
   }
-
 
   /// Gets a String value from FlutterSecureStorage with given [key].
   static getSecuredStorage(String key) async {
     const flutterSecureStorage = FlutterSecureStorage();
     debugPrint("flutterSecureStorage : setData with key : ");
     return await flutterSecureStorage.read(key: key) ?? '';
-     
   }
+
   /// Removes all keys and values in the FlutterSecureStorage
   static clearAllSecuredData() async {
     debugPrint('FlutterSecureStorage : all data has been cleared');
-   const flutterSecureStorage = FlutterSecureStorage();
+    const flutterSecureStorage = FlutterSecureStorage();
     await flutterSecureStorage.deleteAll();
   }
-
 }

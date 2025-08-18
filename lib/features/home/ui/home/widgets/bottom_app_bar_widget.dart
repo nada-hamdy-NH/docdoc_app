@@ -7,24 +7,19 @@ class BottomAppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Positioned(
-          bottom: 0,
-          child: Container(
-            height: 80.h,
-            width: 375.w,
-            
-            decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  spreadRadius: 0,
-                  blurRadius: 2,
-                  offset: const Offset(0, -1), 
-            )])
-          ),
-        );
-       
-       
+    return Positioned(
+      bottom: 0,
+      child: Container(
+          height: 80.h,
+          width: 375.w,
+          decoration: BoxDecoration(color: Colors.white, boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 0,
+              blurRadius: 2,
+              offset: const Offset(0, -1),
+            )
+          ])),
+    );
   }
 }

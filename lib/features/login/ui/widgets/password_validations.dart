@@ -20,20 +20,15 @@ class PasswordValidations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
+    return Column(children: [
       buildValidationRow("At least 1 lowercase letter", haseLowerCase),
       verticalSpace(2),
-
       buildValidationRow("At least 1 uppercase letter", haseUpperCase),
       verticalSpace(2),
-
       buildValidationRow("At least 1 specialCharacter ", haseSpecialCharacters),
       verticalSpace(2),
-
       buildValidationRow("At least 1 number", haseNumber),
       verticalSpace(2),
-
       buildValidationRow("At least 8 characters long", haseMinLength),
     ]);
   }
@@ -45,13 +40,13 @@ class PasswordValidations extends StatelessWidget {
         backgroundColor: ColorsManager.gray,
       ),
       horizontalSpace(6),
-      Text(text, style: TextStyles.font13DarkBlueRegular.copyWith(
-        decoration: haseValidated ? TextDecoration.lineThrough : null , 
-        decorationColor: Colors.green , 
-        decorationThickness: 2 , 
-        color: haseValidated? ColorsManager.gray :ColorsManager.darkBlue 
-      )),
+      Text(text,
+          style: TextStyles.font13DarkBlueRegular.copyWith(
+              decoration: haseValidated ? TextDecoration.lineThrough : null,
+              decorationColor: Colors.green,
+              decorationThickness: 2,
+              color:
+                  haseValidated ? ColorsManager.gray : ColorsManager.darkBlue)),
     ]);
   }
 }
-    

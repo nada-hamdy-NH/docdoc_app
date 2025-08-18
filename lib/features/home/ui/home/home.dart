@@ -28,7 +28,7 @@ class _HomeScreenState extends State<Home> {
             HomeScreen(),
             MessagesScreen(),
             SearchScreen(),
-             AppointementScreen(),
+            AppointementScreen(),
             ProfileScreen(),
           ],
           onPageChanged: (value) {
@@ -38,9 +38,12 @@ class _HomeScreenState extends State<Home> {
           },
         ),
         const BottomAppBarWidget(),
-        RoundedContainers(pageController: pageController,),
-        BottomBarIcons(pageController: pageController,)
-      
+        RoundedContainers(
+          pageController: pageController,
+        ),
+        BottomBarIcons(
+          pageController: pageController,
+        )
       ]),
     );
   }

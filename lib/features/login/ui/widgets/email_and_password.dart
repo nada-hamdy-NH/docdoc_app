@@ -32,15 +32,14 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   void setupPasswordControllerListener() {
     passwordController.addListener(() {
       setState(() {
-      hasLowercase = AppRegex.hasLowercase(passwordController.text);
-      hasUppercase = AppRegex.hasUppercase(passwordController.text);
-      hasNumber = AppRegex.hasNumber(passwordController.text);
-      hasSpecialCharacters = AppRegex.hasSpecialCharacters(passwordController.text);
-      hasMinLength = AppRegex.hasMinLength(passwordController.text);
-      
+        hasLowercase = AppRegex.hasLowercase(passwordController.text);
+        hasUppercase = AppRegex.hasUppercase(passwordController.text);
+        hasNumber = AppRegex.hasNumber(passwordController.text);
+        hasSpecialCharacters =
+            AppRegex.hasSpecialCharacters(passwordController.text);
+        hasMinLength = AppRegex.hasMinLength(passwordController.text);
+      });
     });
-  
-  });
   }
 
   @override
@@ -53,7 +52,9 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             hintText: "Email",
             validator: (value) {
               // ignore: unnecessary_null_comparison
-              if (value == null || value.isEmpty || !AppRegex.isEmailValid(value)) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isEmailValid(value)) {
                 return "Please enter a valid email";
               }
             },

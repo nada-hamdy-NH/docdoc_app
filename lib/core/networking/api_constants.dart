@@ -1,9 +1,9 @@
-class ApiConstants{
+class ApiConstants {
   static const String apiBaseUrl = 'https://vcare.integration25.com/api/';
   static const String login = 'auth/login';
   static const String register = 'auth/register';
-
 }
+
 class ApiErrors {
   static const String badRequestError = "badRequestError";
   static const String noContent = "noContent";
@@ -21,5 +21,3 @@ class ApiErrors {
   static const String retryAgainMessage = "retry_again_message";
   static const String ok = "Ok";
 }
-
-
