@@ -42,6 +42,7 @@ dependencies:
   flutter_stripe: ^11.5.0
   dartz: ^0.10.1
   flutter_paypal_payment: ^1.0.8
+  flutter_dotenv: ^6.0.0
 
 
 dev_dependencies:

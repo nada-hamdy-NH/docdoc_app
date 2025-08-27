@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:docdoc/core/helper/constants.dart';
 import 'package:docdoc/core/helper/shared_preference.dart';
-import 'package:docdoc/core/utils/stripe_service.dart/api_keys.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -32,7 +32,7 @@ class DioFactory {
         BaseOptions(
           baseUrl: "https://api.stripe.com/v1/",
           headers: {
-            "Authorization": "Bearer ${ApiKeys.secretKey}",
+            "Authorization": "Bearer ${dotenv.env["STRIPE_SECRET_KEY"]}",
             "Content-Type": "application/x-www-form-urlencoded",
           },
         ),

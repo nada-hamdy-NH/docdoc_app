@@ -3,15 +3,17 @@ import 'package:docdoc/core/helper/constants.dart';
 import 'package:docdoc/core/helper/extensions.dart';
 import 'package:docdoc/core/helper/shared_preference.dart';
 import 'package:docdoc/core/routing/app_router.dart';
-import 'package:docdoc/core/utils/stripe_service.dart/api_keys.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'doc_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Stripe.publishableKey = ApiKeys.publishableKey;
+   await dotenv.load(fileName: ".env");
+
+  Stripe.publishableKey = dotenv.env["STRIPE_PUBLISHABLE_KEY"] ?? "";
   await Stripe.instance.applySettings();
 
   setupGetIt();
