@@ -6,7 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DatePickerWidget extends StatelessWidget {
   const DatePickerWidget({
-    super.key, required this.onDateChange, 
+    super.key,
+    required this.onDateChange,
   });
   final Function(dynamic date) onDateChange;
 

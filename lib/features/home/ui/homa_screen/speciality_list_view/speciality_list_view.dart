@@ -1,5 +1,5 @@
 import 'package:docdoc/features/home/data/spesialization_response_model.dart';
-import 'package:docdoc/features/home/logic/home_cubit.dart';
+import 'package:docdoc/features/home/ui/logic/home_cubit.dart';
 import 'package:docdoc/features/home/ui/homa_screen/speciality_list_view/speciality_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,6 +53,6 @@ class _SpecialityListViewState extends State<SpecialityListView> {
     });
     context
         .read<HomeCubit>()
-        .getDoctors(specializationId: widget.specializationDataLst[index]!.id!);
+        .getDoctors(widget.specializationDataLst[index]!.id!);
   }
 }

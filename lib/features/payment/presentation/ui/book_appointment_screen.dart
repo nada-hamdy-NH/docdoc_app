@@ -3,7 +3,11 @@ import 'package:docdoc/core/theming/colors.dart';
 import 'package:docdoc/core/theming/styles.dart';
 import 'package:docdoc/core/widgets/app_text_button.dart';
 import 'package:docdoc/features/doctors/data/doctors_model.dart';
-import 'package:docdoc/features/payment/presentation/ui/build_header.dart';
+import 'package:docdoc/features/payment/data/payment_intent_inout_model.dart';
+import 'package:docdoc/features/payment/data/payment_intent_response_model/make_appointment_model.dart';
+import 'package:docdoc/features/payment/presentation/logic/cubit/payment_cubit.dart';
+import 'package:docdoc/core/widgets/build_header.dart';
+import 'package:docdoc/features/payment/presentation/ui/custom_button_bloc_consumer.dart';
 import 'package:docdoc/features/payment/presentation/ui/number_stepper_widget.dart';
 import 'package:docdoc/features/payment/presentation/ui/step_one_content.dart';
 import 'package:docdoc/features/payment/presentation/ui/step_three_content.dart';
@@ -11,11 +15,12 @@ import 'package:docdoc/features/payment/presentation/ui/step_two_content.dart';
 import 'package:docdoc/features/payment/presentation/ui/stepper_header.dart';
 import 'package:docdoc/features/payment/presentation/ui/times.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BookAppointment extends StatefulWidget {
   final String image;
-  final Doctor? doctorInfo;
+  final Doctor doctorInfo;
   const BookAppointment(
       {super.key, required this.image, required this.doctorInfo});
 
@@ -33,6 +38,7 @@ class _BookAppointmentState extends State<BookAppointment> {
   String? selectedTime;
   int selectedPaymentIndex = 0;
   int selectedPaymentOptionIndex = 0;
+  MakeAppointmentModel get makeAppointmentModel => buildAppointmentModel();
 
   final List<String> paymentOption = ["Credit Card", "Bank Transfer", "Paypal"];
 
@@ -59,6 +65,17 @@ class _BookAppointmentState extends State<BookAppointment> {
     slotsCount: 6,
   );
 
+  MakeAppointmentModel buildAppointmentModel() {
+    return MakeAppointmentModel(
+      doctorInfo: widget.doctorInfo,
+      image: widget.image,
+      selectedDate: selectedDate ?? DateTime.now(),
+      selectedTime: selectedTime ?? "02:00",
+      paymentOption: paymentOption[selectedPaymentOptionIndex],
+      appointmentType: appointmentTypes[selectedAppointmentTypeIndex]["title"]!,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +86,7 @@ class _BookAppointmentState extends State<BookAppointment> {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: buildHeader(),
+              child: buildHeader("Book Appointment"),
             ),
             verticalSpace(40),
             CustomNumberStepper(
@@ -99,10 +116,11 @@ class _BookAppointmentState extends State<BookAppointment> {
                       ? Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20.w),
                           child: StepOneContent(
-                            selectedAppointmentTypeIndex: selectedAppointmentTypeIndex,
+                            selectedAppointmentTypeIndex:
+                                selectedAppointmentTypeIndex,
                             selectedContainer: selectedContainer,
                             appointmentTypes: appointmentTypes,
-                            availableTime: widget.doctorInfo!.startTime!,
+                            availableTime: widget.doctorInfo.startTime!,
                             onTimeSelect: (index) {
                               setState(() => selectedContainer = index);
                               selectedTime = times[index];
@@ -116,33 +134,30 @@ class _BookAppointmentState extends State<BookAppointment> {
                       : activeStep == 1
                           ? Padding(
                               padding: EdgeInsets.symmetric(horizontal: 20.w),
-                              child:  StepTwoContent(
+                              child: StepTwoContent(
+                                selectedPaymentIndex:
+                                    selectedPaymentOptionIndex,
                                 onPaymentOptionSelected: (index) {
                                   setState(
                                       () => selectedPaymentOptionIndex = index);
                                 },
                               ))
                           : StepThreeContent(
-                              doctorInfo: widget.doctorInfo!,
-                              image: widget.image,
-                              selectedDate: selectedDate ?? DateTime.now(),
-                              selectedTime: selectedTime ?? times[0],
-                              appointmentType:
-                                  appointmentTypes[selectedAppointmentTypeIndex]
-                                      ["title"]!,
-                                      paymentOption:
-                                          paymentOption[selectedPaymentOptionIndex],
-                            )),
+                              appointmentModel: makeAppointmentModel)),
             ),
             verticalSpace(7),
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: AppTextButton(
-                    textStyle: TextStyles.font16WhiteSemiBold,
-                    buttonText: activeStep == 2 ? "Book Now" : "Continue",
-                    onPressed: () {
-                      setState(() => activeStep++);
-                    })),
+                child: CustomButtonBlocConsumer(
+                  appointmentModel: makeAppointmentModel,
+                  activeStep: activeStep,
+                  selectedPaymentOptionIndex: selectedPaymentOptionIndex,
+                  paymentIntentInputModel:
+                      PaymentIntentInputModel(amount: 2000, currency: "usd"),
+                  onNextStep: () {
+                    setState(() => activeStep++);
+                  },
+                )),
           ],
         ),
       ),

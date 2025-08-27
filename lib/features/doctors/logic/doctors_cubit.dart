@@ -22,18 +22,15 @@ class DoctorsCubit extends Cubit<DoctorsState> {
       emit(DoctorsState.doctorsError(apiErrorModel));
     });
   }
-   Future<void> getDoctor( String id) async {
+
+  Future<void> getDoctor(String id) async {
     emit(const DoctorsState.doctorLoading());
-    final response = await doctorsRepo.getDoctor( id:  id);
+    final response = await doctorsRepo.getDoctor(id: id);
     response.when(success: (DoctorModel doctorModel) {
-      
-       emit(DoctorsState.doctorSuccess(doctorModel));
-     
+      emit(DoctorsState.doctorSuccess(doctorModel));
     }, failure: (ApiErrorModel apiErrorModel) {
-      
       emit(DoctorsState.doctorsError(apiErrorModel));
     });
-   
   }
 
   void filterBySpecialty(String? specialty) {

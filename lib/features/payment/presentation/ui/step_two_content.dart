@@ -5,14 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StepTwoContent extends StatefulWidget {
-  const StepTwoContent({super.key,required this.onPaymentOptionSelected });
+  const StepTwoContent(
+      {super.key,
+      required this.onPaymentOptionSelected,
+      required this.selectedPaymentIndex});
   final ValueChanged<int> onPaymentOptionSelected;
-
+  final int selectedPaymentIndex;
   @override
   State<StepTwoContent> createState() => _StepTwoContentState();
 }
 
-int isSelected = 0;
 List<String> paymentOption = ["Credit Card", "Bank Transfer", "Paypal"];
 
 class _StepTwoContentState extends State<StepTwoContent> {
@@ -41,12 +43,9 @@ class _StepTwoContentState extends State<StepTwoContent> {
                       index: index,
                       paymentOption: paymentOption,
                       onTap: () {
-                        setState(() {
-                          isSelected = index;
-                        });
                         widget.onPaymentOptionSelected(index);
                       },
-                      isSelected: isSelected);
+                      isSelected: widget.selectedPaymentIndex);
                 },
               ),
             )

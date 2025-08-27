@@ -10,17 +10,15 @@ class BookingInfoTimeAndDate extends StatelessWidget {
   final DateTime selectedDate;
   final String selectedTime;
   final String appointmentType;
-  const BookingInfoTimeAndDate( {
+  const BookingInfoTimeAndDate({
     required this.selectedDate,
     required this.selectedTime,
     required this.bookingInfo,
     required this.appointmentType,
     super.key,
-   
   });
 
   final List<Map<String, String>> bookingInfo;
-
 
   @override
   Widget build(BuildContext context) {
@@ -57,27 +55,32 @@ class BookingInfoTimeAndDate extends StatelessWidget {
                           style: TextStyles.font16darkBlue600Weight,
                         ),
                         verticalSpace(5),
-                        index == 0 ?
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [ Text(
-                           DateFormat('EEEE, dd MMMM yyyy').format(selectedDate)  ,
-                          style: TextStyles.font12GrayRegular,
-                        ),
-                        verticalSpace(5),
-                        Text(
-                          selectedTime + " PM",
-                          style: TextStyles.font12GrayRegular,
-                        )],): 
-                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [ Text(
-                            appointmentType ,
-                          style: TextStyles.font12GrayRegular,
-                        ),
-                         verticalSpace(10),
-                        ],)
-                       
+                        index == 0
+                            ? Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    DateFormat('EEEE, dd MMMM yyyy')
+                                        .format(selectedDate),
+                                    style: TextStyles.font12GrayRegular,
+                                  ),
+                                  verticalSpace(5),
+                                  Text(
+                                    selectedTime + " PM",
+                                    style: TextStyles.font12GrayRegular,
+                                  )
+                                ],
+                              )
+                            : Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    appointmentType,
+                                    style: TextStyles.font12GrayRegular,
+                                  ),
+                                  verticalSpace(10),
+                                ],
+                              )
                       ],
                     )
                   ],

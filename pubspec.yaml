@@ -39,6 +39,9 @@ dependencies:
   im_stepper: ^1.0.1+1 
   date_picker_timeline: ^1.2.7
   group_button: ^5.3.4
+  flutter_stripe: ^11.5.0
+  dartz: ^0.10.1
+  flutter_paypal_payment: ^1.0.8
 
 
 dev_dependencies:

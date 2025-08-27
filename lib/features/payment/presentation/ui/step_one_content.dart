@@ -15,10 +15,9 @@ class StepOneContent extends StatelessWidget {
   final List<Map<String, String>> appointmentTypes;
   final ValueChanged<int> onTimeSelect;
   final ValueChanged<int> onTypeSelect;
-   final ValueChanged<DateTime> onDateSelect;
-   
+  final ValueChanged<DateTime> onDateSelect;
 
-   StepOneContent({
+  StepOneContent({
     super.key,
     required this.availableTime,
     required this.selectedContainer,
@@ -28,12 +27,12 @@ class StepOneContent extends StatelessWidget {
     required this.onTypeSelect,
     required this.onDateSelect,
   });
-  
+
   List<String> times = generateDynamicSlots(
-  startHour: 14,
-  endHour: 20,
-  slotsCount: 6,
-);
+    startHour: 14,
+    endHour: 20,
+    slotsCount: 6,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -41,19 +40,17 @@ class StepOneContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         sectionTitle("Select Date", action: "Set Manual"),
-         Padding(
-          padding:const EdgeInsets.symmetric(horizontal: 16),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: DatePickerWidget(
-             onDateChange: (date) {
+            onDateChange: (date) {
               onDateSelect(date); // 👈 يبعته للـ parent
             },
           ),
         ),
         sectionTitle("Available time"),
-
-
         AvailableTimeGrid(
-          availableTimes: times  ,
+          availableTimes: times,
           selectedContainer: selectedContainer,
           onSelect: onTimeSelect,
         ),

@@ -5,7 +5,9 @@ import 'package:docdoc/features/home/ui/homa_screen/doctors_list/doctors_bloc_bu
 import 'package:docdoc/features/home/ui/homa_screen/widgets/find_near_button.dart';
 import 'package:docdoc/features/home/ui/homa_screen/widgets/name_notificationIcon.dart';
 import 'package:docdoc/features/home/ui/homa_screen/speciality_list_view/specializations_bloc_builder.dart';
+import 'package:docdoc/features/home/ui/logic/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -61,6 +63,8 @@ class HomeScreen extends StatelessWidget {
                           Navigator.pushNamed(
                             context,
                             Routes.specialityScreen,
+                            arguments:
+                                context.read<HomeCubit>().state.specializations,
                           );
                         },
                         child: Text(

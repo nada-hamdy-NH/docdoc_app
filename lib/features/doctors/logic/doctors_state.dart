@@ -17,9 +17,11 @@ class DoctorsState with _$DoctorsState {
   const factory DoctorsState.doctorsError(ApiErrorModel apiErrorModel) =
       DoctorsError;
 
-        const factory DoctorsState.doctorLoading() = DoctorLoading;
+  const factory DoctorsState.doctorLoading() = DoctorLoading;
 
-  const factory DoctorsState.doctorSuccess(DoctorModel doctorModel) = DoctorState;
+  const factory DoctorsState.doctorSuccess(DoctorModel doctorModel) =
+      DoctorState;
 
-  const factory DoctorsState.doctorError(ApiErrorModel apiErrorModel) = DoctorError;
+  const factory DoctorsState.doctorError(ApiErrorModel apiErrorModel) =
+      DoctorError;
 }

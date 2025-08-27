@@ -5,10 +5,13 @@ import 'package:docdoc/features/doctors/logic/doctors_cubit.dart';
 import 'package:docdoc/features/doctors/ui/doctor_details.dart';
 import 'package:docdoc/features/doctors/ui/filter_doctors.dart';
 import 'package:docdoc/features/home/data/spesialization_response_model.dart';
-import 'package:docdoc/features/home/logic/home_cubit.dart';
+import 'package:docdoc/features/home/ui/logic/home_cubit.dart';
 import 'package:docdoc/features/home/ui/home/home.dart';
 import 'package:docdoc/features/login/logic/login_cubit.dart';
 import 'package:docdoc/features/notification/ui/notification_screen.dart';
+import 'package:docdoc/features/payment/data/payment_intent_response_model/make_appointment_model.dart';
+import 'package:docdoc/features/payment/presentation/logic/cubit/make_appointment_cubit.dart';
+import 'package:docdoc/features/payment/presentation/ui/confirmed_screen.dart';
 import 'package:docdoc/features/signup/logic/register_cubit.dart';
 import 'package:docdoc/features/signup/ui/signup_screen.dart';
 import 'package:docdoc/features/speciality/ui/specility_screen.dart';
@@ -28,9 +31,10 @@ class AppRouter {
 
       case Routes.home:
         return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                create: (context) => HomeCubit(getIt())..getSpesializations(),
-                child: const Home()));
+            builder: (context) => BlocProvider.value(
+                  value: getIt<HomeCubit>(),
+                  child: const Home(),
+                ));
 
       case Routes.loginScreen:
         return MaterialPageRoute(
@@ -49,13 +53,25 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const NotificationScreen());
 
       case Routes.specialityScreen:
-        return MaterialPageRoute(builder: (_) => SpecilityScreen());
+        final specializationDataList =
+            settings.arguments as List<SpecializationData>;
+        return MaterialPageRoute(
+            builder: (_) => SpecilityScreen(
+                specializationDataList: specializationDataList));
 
       case Routes.doctorScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
                 create: (context) => DoctorsCubit(getIt())..getDoctors(),
                 child: const FilterDoctorsScreen()));
+
+      case Routes.ConfirmedScreen:
+        final args = settings.arguments as MakeAppointmentModel;
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => MakeAppointmentCubit(),
+                  child: ConfirmedScreen(appientmentModel: args),
+                ));
 
       case Routes.doctorDetailsScreen:
         final args = settings.arguments as List;

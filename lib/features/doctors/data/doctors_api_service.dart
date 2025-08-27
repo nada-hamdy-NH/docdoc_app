@@ -14,7 +14,6 @@ abstract class DoctorsApiService {
   @GET(DoctorsConstants.doctors)
   Future<DoctorsResponseModel> getDoctors();
 
-
   @GET("${DoctorsConstants.doctor}{id}")
-Future<DoctorModel> getDoctor(@Path("id") String id);
+  Future<DoctorModel> getDoctor(@Path("id") String id);
 }

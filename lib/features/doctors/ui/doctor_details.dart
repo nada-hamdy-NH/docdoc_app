@@ -12,7 +12,8 @@ import 'package:docdoc/features/doctors/logic/doctors_cubit.dart';
 import 'package:docdoc/features/doctors/ui/widgets/about_widget.dart';
 import 'package:docdoc/features/doctors/ui/widgets/location_widget.dart';
 import 'package:docdoc/features/doctors/ui/widgets/reviews_widget.dart';
-import 'package:docdoc/features/payment/presentation/ui/book_appointment.dart';
+import 'package:docdoc/features/payment/presentation/logic/cubit/payment_cubit.dart';
+import 'package:docdoc/features/payment/presentation/ui/book_appointment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -148,11 +149,20 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                BlocProvider(
-                                  create: (context )=> getIt<DoctorsCubit>()..getDoctor(  widget.doctor.id.toString(),),
-                                  child:  BookAppointment(image: widget.image ,doctorInfo:  widget.doctor),)
-                              ));
+                                  builder: (context) => BlocProvider(
+                                        create: (context) =>
+                                            getIt<DoctorsCubit>()
+                                              ..getDoctor(
+                                                widget.doctor.id.toString(),
+                                              ),
+                                        child: BlocProvider(
+                                          create: (context) =>
+                                              getIt<PaymentCubit>(),
+                                          child: BookAppointment(
+                                              image: widget.image,
+                                              doctorInfo: widget.doctor),
+                                        ),
+                                      )));
                         },
                       )
                     ]))));

@@ -2,6 +2,8 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://maven.stripe.com/release' } // مستودع Stripe الرسمي
+        maven { url 'https://storage.googleapis.com/download.flutter.io' }
     }
 }
 

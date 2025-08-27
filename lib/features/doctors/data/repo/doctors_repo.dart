@@ -15,7 +15,8 @@ class DoctorsRepo {
       return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
-  Future<ApiResult<DoctorModel>> getDoctor({ required String id}) async {
+
+  Future<ApiResult<DoctorModel>> getDoctor({required String id}) async {
     try {
       final response = await doctorsApiService.getDoctor(id);
       return ApiResult.success(response);

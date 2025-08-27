@@ -3,12 +3,14 @@ import 'package:docdoc/core/helper/spacing.dart';
 import 'package:docdoc/core/theming/colors.dart';
 import 'package:docdoc/core/theming/styles.dart';
 import 'package:docdoc/core/widgets/arrow_back_container.dart';
+import 'package:docdoc/features/home/data/spesialization_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SpecilityScreen extends StatelessWidget {
-  const SpecilityScreen({super.key});
+  final List<SpecializationData> specializationDataList;
+  const SpecilityScreen({super.key, required this.specializationDataList});
 
   @override
   Widget build(BuildContext context) {
