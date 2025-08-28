@@ -11,7 +11,7 @@ import 'doc_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   await dotenv.load(fileName: ".env");
+   await dotenv.load(fileName:"assets/config/.env");
 
   Stripe.publishableKey = dotenv.env["STRIPE_PUBLISHABLE_KEY"] ?? "";
   await Stripe.instance.applySettings();
