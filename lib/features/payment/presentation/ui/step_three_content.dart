@@ -6,6 +6,7 @@ import 'package:docdoc/features/payment/data/payment_intent_response_model/make_
 import 'package:docdoc/features/payment/presentation/ui/booking_info_time_anddate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class StepThreeContent extends StatelessWidget {
   final MakeAppointmentModel appointmentModel;
@@ -91,15 +92,33 @@ class StepThreeContent extends StatelessWidget {
                 ]),
               )),
           Padding(
-            padding: EdgeInsets.only(top: 30.0.h, bottom: 24.0.h, left: 20.0.h),
+            padding: EdgeInsets.only(top: 30.0.h, bottom: 16.0.h, left: 20.0.h),
             child: Text(
               "Payment Information",
               style: TextStyles.font16darkBlue600Weight,
             ),
           ),
           SizedBox(
-            height: 40.h,
-            child: const Row(children: [Icon(Icons.payment_outlined)]),
+            height: 60.h,
+            child:  Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
+              child: Row(children: [
+              Container(
+                width: 40.w,
+                height: 40.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                color: ColorsManager.grayContainerForPayment
+              ),
+              child: appointmentModel.paymentOption == "Credit Cards" ? Image.asset("assets/images/cridettt.png" ): SvgPicture.asset("assets/svgs/PayPalicon.svg",width: 25,height: 30),
+              ),
+              horizontalSpace(10),
+              Text(appointmentModel.paymentOption,style: TextStyles.font16darkBlue600Weight,)
+              
+              
+              
+              ]),
+            ),
           ),
           Container(
             decoration: BoxDecoration(
