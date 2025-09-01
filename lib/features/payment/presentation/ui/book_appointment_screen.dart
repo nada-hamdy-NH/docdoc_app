@@ -40,7 +40,7 @@ class _BookAppointmentState extends State<BookAppointment> {
   int selectedPaymentOptionIndex = 0;
   MakeAppointmentModel get makeAppointmentModel => buildAppointmentModel();
 
-  final List<String> paymentOption = ["Credit Card", "Bank Transfer", "Paypal"];
+  final List<String> paymentOption = ["Credit Cards", "Bank Transfer", "Paypal"];
 
   final List<Map<String, String>> appointmentTypes = [
     {
