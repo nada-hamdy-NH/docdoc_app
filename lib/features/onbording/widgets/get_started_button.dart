@@ -1,3 +1,4 @@
+import 'package:docdoc/core/helper/constants.dart';
 import 'package:docdoc/core/helper/extensions.dart';
 import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/core/theming/colors.dart';
@@ -12,7 +13,7 @@ class GetStartedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        context.pushNamed(Routes.loginScreen);
+        context.pushNamed(isLoggedIn ? Routes.home : Routes.loginScreen,);
       },
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all(ColorsManager.mainBlue),

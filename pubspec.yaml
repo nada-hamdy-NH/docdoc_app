@@ -43,6 +43,7 @@ dependencies:
   dartz: ^0.10.1
   flutter_paypal_payment: ^1.0.8
   flutter_dotenv: ^6.0.0
+  chat_bubbles: ^1.7.0
 
 
 dev_dependencies:

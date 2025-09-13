@@ -2,6 +2,7 @@ import 'package:docdoc/core/helper/spacing.dart';
 import 'package:docdoc/core/theming/colors.dart';
 import 'package:docdoc/core/theming/styles.dart';
 import 'package:docdoc/core/widgets/app_text_button.dart';
+import 'package:docdoc/features/doctors/data/doctor/doctor.dart';
 import 'package:docdoc/features/doctors/data/doctors_model.dart';
 import 'package:docdoc/features/payment/data/payment_intent_inout_model.dart';
 import 'package:docdoc/features/payment/data/payment_intent_response_model/make_appointment_model.dart';
@@ -20,7 +21,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BookAppointment extends StatefulWidget {
   final String image;
-  final Doctor doctorInfo;
+  final DoctorModel doctorInfo;
   const BookAppointment(
       {super.key, required this.image, required this.doctorInfo});
 
@@ -40,7 +41,11 @@ class _BookAppointmentState extends State<BookAppointment> {
   int selectedPaymentOptionIndex = 0;
   MakeAppointmentModel get makeAppointmentModel => buildAppointmentModel();
 
-  final List<String> paymentOption = ["Credit Cards", "Bank Transfer", "Paypal"];
+  final List<String> paymentOption = [
+    "Credit Cards",
+    "Bank Transfer",
+    "Paypal"
+  ];
 
   final List<Map<String, String>> appointmentTypes = [
     {
@@ -120,7 +125,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                                 selectedAppointmentTypeIndex,
                             selectedContainer: selectedContainer,
                             appointmentTypes: appointmentTypes,
-                            availableTime: widget.doctorInfo.startTime!,
+                            availableTime: widget.doctorInfo.data!.startTime!,
                             onTimeSelect: (index) {
                               setState(() => selectedContainer = index);
                               selectedTime = times[index];

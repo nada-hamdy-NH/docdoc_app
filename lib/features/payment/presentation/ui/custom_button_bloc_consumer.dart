@@ -46,14 +46,10 @@ class _CustomButtonBlocConsumerState extends State<CustomButtonBlocConsumer> {
             });
           },
           paymentSuccess: () {
-            setState(() => isLoading = false
-           
-            );
+            setState(() => isLoading = false);
             Navigator.pop(context);
-            Navigator.pushReplacementNamed(
-                      context, Routes.ConfirmedScreen,
-                      arguments: widget.appointmentModel);
-           
+            Navigator.pushReplacementNamed(context, Routes.ConfirmedScreen,
+                arguments: widget.appointmentModel);
           },
           paymentFailed: (Error) {
             setState(() => isLoading = false);
@@ -72,34 +68,30 @@ class _CustomButtonBlocConsumerState extends State<CustomButtonBlocConsumer> {
               if (widget.activeStep == 2 &&
                   widget.selectedPaymentOptionIndex == 0) {
                 context
-                    .read<PaymentCubit>() .makePayment(widget.paymentIntentInputModel);
-
+                    .read<PaymentCubit>()
+                    .makePayment(widget.paymentIntentInputModel);
               } else if (widget.activeStep == 2 &&
                   widget.selectedPaymentOptionIndex == 2) {
-                    var transactions = getTransaction();
-                     executePaypalMethod(context, transactions , widget.appointmentModel!);
-                
-                   
-              } 
-                widget.onNextStep();
-              
+                var transactions = getTransaction();
+                executePaypalMethod(
+                    context, transactions, widget.appointmentModel!);
+              }
+              widget.onNextStep();
             });
       },
     );
   }
 
-  
- ({AmountModel amount, ItemsModel items}) getTransaction(){
-    var amount = AmountModel(total: "70" , currency: "usd" , details: Details(
-                      subtotal: "70" , shipping: "0" , shippingDiscount: 0
-                     ) );
-                     List<Item> orders = [Item(name: "Apple" , quantity: 4 , price: "5" , currency: "usd" ) , 
-                     Item( name: "Pineapple",
-                            quantity: 5,
-                            price: '10',
-                            currency: "USD")
-                     ];
-                     var items = ItemsModel(items:orders );
-                     return(amount : amount ,items : items) ; 
+  ({AmountModel amount, ItemsModel items}) getTransaction() {
+    var amount = AmountModel(
+        total: "70",
+        currency: "usd",
+        details: Details(subtotal: "70", shipping: "0", shippingDiscount: 0));
+    List<Item> orders = [
+      Item(name: "Apple", quantity: 4, price: "5", currency: "usd"),
+      Item(name: "Pineapple", quantity: 5, price: '10', currency: "USD")
+    ];
+    var items = ItemsModel(items: orders);
+    return (amount: amount, items: items);
   }
 }

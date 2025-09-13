@@ -71,20 +71,20 @@ class StepThreeContent extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            appointmentModel.doctorInfo.name!,
+                            appointmentModel.doctorInfo.data!.name!,
                             style: TextStyles.font16darkBlueBold,
                           ),
                           SizedBox(
                             height: 8.h,
                           ),
                           Text(
-                              "${appointmentModel.doctorInfo.specialization!.name} | ${appointmentModel.doctorInfo.phone}",
+                              "${appointmentModel.doctorInfo.data?.specialization!.name!} | ${appointmentModel.doctorInfo.data?.phone}",
                               style: TextStyles.font12GrayMedium),
                           SizedBox(
                             height: 8.h,
                           ),
                           Text(
-                            appointmentModel.doctorInfo.email!,
+                            appointmentModel.doctorInfo.data!.email!,
                             style: TextStyles.font12GrayMedium,
                           )
                         ]),
@@ -100,23 +100,25 @@ class StepThreeContent extends StatelessWidget {
           ),
           SizedBox(
             height: 60.h,
-            child:  Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0.w),
               child: Row(children: [
-              Container(
-                width: 40.w,
-                height: 40.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                color: ColorsManager.grayContainerForPayment
-              ),
-              child: appointmentModel.paymentOption == "Credit Cards" ? Image.asset("assets/images/cridettt.png" ): SvgPicture.asset("assets/svgs/PayPalicon.svg",width: 25,height: 30),
-              ),
-              horizontalSpace(10),
-              Text(appointmentModel.paymentOption,style: TextStyles.font16darkBlue600Weight,)
-              
-              
-              
+                Container(
+                  width: 40.w,
+                  height: 40.h,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: ColorsManager.grayContainerForPayment),
+                  child: appointmentModel.paymentOption == "Credit Cards"
+                      ? Image.asset("assets/images/cridettt.png")
+                      : SvgPicture.asset("assets/svgs/PayPalicon.svg",
+                          width: 25, height: 30),
+                ),
+                horizontalSpace(10),
+                Text(
+                  appointmentModel.paymentOption,
+                  style: TextStyles.font16darkBlue600Weight,
+                )
               ]),
             ),
           ),

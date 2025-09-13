@@ -13,6 +13,9 @@ import 'package:docdoc/features/login/logic/login_cubit.dart';
 import 'package:docdoc/features/payment/data/payment_api_service_temp.dart';
 import 'package:docdoc/features/payment/data/repos/payment_repo_imp.dart';
 import 'package:docdoc/features/payment/presentation/logic/cubit/payment_cubit.dart';
+import 'package:docdoc/features/profile/data/profile_api_service.dart';
+import 'package:docdoc/features/profile/data/repo/profile_repo.dart';
+import 'package:docdoc/features/profile/presentaion/logic/cubit/profile_cubit.dart';
 import 'package:docdoc/features/signup/data/repos/register_repo.dart';
 import 'package:docdoc/features/signup/logic/register_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -48,4 +51,10 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<StripeService>(() => StripeService(getIt()));
   getIt.registerLazySingleton<PaymentRepoImp>(() => PaymentRepoImp(getIt()));
   getIt.registerFactory<PaymentCubit>(() => PaymentCubit(getIt()));
+
+  ///profile
+  getIt.registerLazySingleton<ProfileApiService>(
+      () => ProfileApiService(appDio));
+  getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
 }

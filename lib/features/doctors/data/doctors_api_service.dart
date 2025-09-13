@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:docdoc/core/networking/api_constants.dart';
+import 'package:docdoc/features/doctors/data/doctor/doctor.dart';
 import 'package:docdoc/features/doctors/data/doctors_constants.dart';
 import 'package:docdoc/features/doctors/data/doctors_model.dart';
-import 'package:docdoc/features/doctors/data/doctor_model/doctor_model.dart';
+
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 

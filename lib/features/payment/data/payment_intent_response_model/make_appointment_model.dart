@@ -1,7 +1,8 @@
+import 'package:docdoc/features/doctors/data/doctor/doctor.dart';
 import 'package:docdoc/features/doctors/data/doctors_model.dart';
 
 class MakeAppointmentModel {
-  final Doctor doctorInfo;
+  final DoctorModel doctorInfo;
   final String image;
   final DateTime selectedDate;
   final String selectedTime;

@@ -1,4 +1,5 @@
 import 'package:docdoc/core/helper/spacing.dart';
+import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/core/theming/styles.dart';
 import 'package:docdoc/core/widgets/app_text.dart';
 import 'package:docdoc/core/widgets/app_text_button.dart';
@@ -32,9 +33,12 @@ class LoginScreen extends StatelessWidget {
                 verticalSpace(24),
                 Align(
                   alignment: AlignmentDirectional.centerEnd,
-                  child: Text(
-                    "Forgot password?",
-                    style: TextStyles.font13BlueRegular,
+                  child: GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, Routes.forgetPassword),
+                    child: Text(
+                      "Forgot password?",
+                      style: TextStyles.font13BlueRegular,
+                    ),
                   ),
                 ),
                 verticalSpace(40),

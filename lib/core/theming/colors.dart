@@ -22,4 +22,5 @@ class ColorsManager {
   static const Color stepperColor = Color(0xffE0E0E0);
   static const Color green = Color(0xFF22C55E);
   static const Color grayContainerForPayment = Color(0xFFF1F1F1);
+  static const Color ratingStart = Color(0xFFFFD600);
 }

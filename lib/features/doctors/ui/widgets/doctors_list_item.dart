@@ -1,3 +1,4 @@
+import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/features/doctors/data/doctors_model.dart';
 import 'package:docdoc/features/doctors/ui/widgets/doctor_container.dart';
 import 'package:flutter/material.dart';
@@ -82,8 +83,8 @@ class DoctorsListItem extends StatelessWidget {
         ),
         child: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, "/doctorDetailsScreen",
-                arguments: [doctorsList[index], images[index]]);
+            Navigator.pushNamed(context, Routes.doctorDetailsScreen,
+                arguments: [doctorsList[index].id.toString(), images[index]]);
           },
           child: DoctorContainer(
               images: images, index: index, doctorsList: doctorsList),

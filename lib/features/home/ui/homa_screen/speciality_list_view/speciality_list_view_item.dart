@@ -3,16 +3,79 @@ import 'package:docdoc/core/theming/styles.dart';
 import 'package:docdoc/features/home/data/spesialization_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SpecialityListViewItem extends StatelessWidget {
   final List<SpecializationData?> specializationDataLst;
   final int itemIndex;
   final selectedIndex;
-  const SpecialityListViewItem(
+  SpecialityListViewItem(
       {super.key,
       required this.specializationDataLst,
       required this.itemIndex,
       required this.selectedIndex});
+  List<Widget> specialityImagesList = [
+    SvgPicture.asset(
+      "assets/svgs/cardilogist.svg",
+      width: 38.w,
+      height: 38.h,
+      fit: BoxFit.cover,
+    ),
+    Image.asset(
+      "assets/images/Dermatology.png",
+      width: 38.w,
+      height: 38.h,
+      fit: BoxFit.cover,
+    ),
+    Image.asset(
+      "assets/images/brain.png",
+      width: 38.w,
+      height: 38.h,
+      fit: BoxFit.cover,
+    ),
+    Image.asset(
+      "assets/images/Orthopedics.png",
+      width: 38.w,
+      height: 38.h,
+      fit: BoxFit.cover,
+    ),
+    Image.asset(
+      "assets/images/baby.png",
+      width: 38.w,
+      height: 38.h,
+      fit: BoxFit.cover,
+    ),
+    Image.asset(
+      "assets/images/Gynecology.png",
+      width: 38.w,
+      height: 38.h,
+      fit: BoxFit.cover,
+    ),
+    SvgPicture.asset(
+      "assets/svgs/optometary.svg",
+      width: 38.w,
+      height: 38.h,
+      fit: BoxFit.cover,
+    ),
+    Image.asset(
+      "assets/images/Urologist.png",
+      width: 38.w,
+      height: 38.h,
+      fit: BoxFit.cover,
+    ),
+    SvgPicture.asset(
+      "assets/svgs/histologist.svg",
+      width: 38.w,
+      height: 38.h,
+      fit: BoxFit.cover,
+    ),
+    Image.asset(
+      "assets/images/Psychiatry.png",
+      width: 38.w,
+      height: 38.h,
+      fit: BoxFit.cover,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +89,13 @@ class SpecialityListViewItem extends StatelessWidget {
               child: CircleAvatar(
                 radius: 28.r,
                 backgroundColor: ColorsManager.someLiterGray,
-                child: Image.asset(
-                  "assets/images/man_doctor_europe.png",
-                  width: 26.w,
-                  height: 26.h,
-                ),
+                child: specialityImagesList[itemIndex],
               ),
             )
           : CircleAvatar(
               radius: 28.r,
               backgroundColor: ColorsManager.someLiterGray,
-              child: Image.asset(
-                "assets/images/man_doctor_europe.png",
-                width: 24.w,
-                height: 24.h,
-              ),
+              child: specialityImagesList[itemIndex],
             ),
       SizedBox(
         height: 10.h,

@@ -1,15 +1,17 @@
 import 'package:docdoc/core/theming/styles.dart';
-import 'package:docdoc/features/doctors/ui/doctor_details.dart';
+import 'package:docdoc/features/doctors/data/doctor/doctor.dart';
+import 'package:docdoc/features/doctors/data/doctors_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomDoctorContainer extends StatelessWidget {
+  final DoctorModel doctor;
+  final String image;
   const CustomDoctorContainer({
     super.key,
-    required this.widget,
+    required this.doctor,
+    required this.image,
   });
-
-  final DoctorDetailsScreen widget;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class CustomDoctorContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.0),
           image: DecorationImage(
             image: AssetImage(
-              widget.image,
+              image,
             ),
           ),
         ),
@@ -31,24 +33,25 @@ class CustomDoctorContainer extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
-            widget.doctor.name!,
+            doctor.data?.name ?? "",
             style: TextStyles.font16darkBlueBold,
           ),
           SizedBox(
             height: 8.h,
           ),
-          Text("${widget.doctor.specialization!.name} | ${widget.doctor.phone}",
+          Text(
+              "${doctor.data?.specialization?.name ?? ""} | ${doctor.data?.phone ?? ""}",
               style: TextStyles.font12GrayMedium),
           SizedBox(
             height: 8.h,
           ),
           Text(
-            widget.doctor.email!,
+            doctor.data?.email ?? "",
             style: TextStyles.font12GrayMedium,
           )
         ]),
       ),
-      Spacer(),
+      const Spacer(),
       GestureDetector(
           onTap: () {},
           child: Image.asset(

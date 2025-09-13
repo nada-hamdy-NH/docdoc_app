@@ -1,17 +1,14 @@
- {
-                        "items": [
-                          {
-                            "name": "Apple",
-                            "quantity": 4,
-                            "price": "5",
-                            "currency": "USD"
-                          },
-                          {
-                            "name": "Pineapple",
-                            "quantity": 5,
-                            "price": "10",
-                            "currency": "USD"
-                          }
-                        ]
-
-                      }
+{
+    "message": "Successful query",
+    "data": [
+        {
+            "id": 4095,
+            "name": "nada",
+            "email": "nadaa@gmail.com",
+            "phone": "01232435465",
+            "gender": "male"
+        }
+    ],
+    "status": true,
+    "code": 200
+}

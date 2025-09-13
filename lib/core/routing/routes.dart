@@ -8,4 +8,8 @@ class Routes {
   static const String doctorScreen = '/doctorScreen';
   static const String doctorDetailsScreen = '/doctorDetailsScreen';
   static const String ConfirmedScreen = '/ConfirmedScreen';
+  static const String conversationView = '/conversationView';
+  static const String settings = '/settingsView';
+  static const String language = '/languageView';
+  static const String forgetPassword = '/forgetPasswordView';
 }

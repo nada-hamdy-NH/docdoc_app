@@ -1,11 +1,16 @@
+import 'package:docdoc/core/di/dependency_injection.dart';
+import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/features/appointement/ui/appointement.dart';
+import 'package:docdoc/features/doctors/logic/doctors_cubit.dart';
+import 'package:docdoc/features/doctors/ui/filter_doctors.dart';
 import 'package:docdoc/features/home/ui/homa_screen/home_screen.dart';
 import 'package:docdoc/features/home/ui/home/widgets/bottom_app_bar_widget.dart';
 import 'package:docdoc/features/home/ui/home/widgets/bottom_bar_icons.dart';
 import 'package:docdoc/features/home/ui/home/widgets/rounded_containers.dart';
 import 'package:docdoc/features/home/ui/logic/home_cubit.dart';
+import 'package:docdoc/features/inbox/presentaion/ui/view/inbox_view.dart';
 import 'package:docdoc/features/messages/ui/messages_screen.dart';
-import 'package:docdoc/features/profile/ui/profile.dart';
+import 'package:docdoc/features/profile/presentaion/ui/profile.dart';
 import 'package:docdoc/features/search/ui/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,10 +43,13 @@ class _HomeScreenState extends State<Home> {
           physics: const NeverScrollableScrollPhysics(),
           children: [
             HomeScreen(),
-            MessagesScreen(),
-            SearchScreen(),
-            AppointementScreen(),
-            ProfileScreen(),
+            InboxView(),
+            BlocProvider(
+              create: (context) => DoctorsCubit(getIt())..getDoctors(),
+              child: FilterDoctorsScreen(),
+            ),
+            MyAppointmentView(),
+            ProfileView(),
           ],
           onPageChanged: (value) {
             setState(() {

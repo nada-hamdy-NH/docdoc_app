@@ -10,9 +10,9 @@ class DoctorModel {
 
   factory DoctorModel.fromJson(Map<String, dynamic> json) => DoctorModel(
         message: json['message'] as String?,
-        data: json['data'] != null && json['data'] is Map<String, dynamic>
-            ? Data.fromJson(json['data'] as Map<String, dynamic>)
-            : null,
+        data: json['data'] == null
+            ? null
+            : Data.fromJson(json['data'] as Map<String, dynamic>),
         status: json['status'] as bool?,
         code: json['code'] as int?,
       );

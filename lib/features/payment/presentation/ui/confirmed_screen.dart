@@ -1,11 +1,8 @@
 import 'package:docdoc/core/helper/spacing.dart';
 import 'package:docdoc/core/routing/routes.dart';
-import 'package:docdoc/core/theming/colors.dart';
 import 'package:docdoc/core/theming/styles.dart';
 import 'package:docdoc/core/widgets/app_text_button.dart';
 import 'package:docdoc/core/widgets/build_header.dart';
-import 'package:docdoc/features/appointement/ui/appointement.dart';
-import 'package:docdoc/features/doctors/data/doctors_model.dart';
 import 'package:docdoc/features/payment/data/payment_intent_response_model/make_appointment_model.dart';
 import 'package:docdoc/features/payment/presentation/ui/booking_info_time_anddate.dart';
 import 'package:flutter/material.dart';
@@ -92,20 +89,20 @@ class ConfirmedScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            " ${appientmentModel.doctorInfo.name}",
+                            " ${appientmentModel.doctorInfo.data!.name}",
                             style: TextStyles.font16darkBlueBold,
                           ),
                           SizedBox(
                             height: 8.h,
                           ),
                           Text(
-                              "${appientmentModel.doctorInfo.specialization!.name} | ${appientmentModel.doctorInfo.phone}",
+                              "${appientmentModel.doctorInfo.data!.specialization!.name!} | ${appientmentModel.doctorInfo.data!.phone}",
                               style: TextStyles.font12GrayMedium),
                           SizedBox(
                             height: 8.h,
                           ),
                           Text(
-                            "${appientmentModel.doctorInfo.email}",
+                            "${appientmentModel.doctorInfo.data!.email}",
                             style: TextStyles.font12GrayMedium,
                           )
                         ]),
